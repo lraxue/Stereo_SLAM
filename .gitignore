@@ -1,0 +1,8 @@
+Thirdparty/*
+Vocabulary/ORBvoc.txt
+build/
+*~
+lib/
+cmake_modules/*
+Examples/*
+cmake-build-debug/*
