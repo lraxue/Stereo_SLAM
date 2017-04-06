@@ -1448,9 +1448,6 @@ namespace ORB_SLAM2 {
                     }
 
                     if (bestDist <= TH_HIGH) {
-
-                        pMP->AddFounderOfFrame(&CurrentFrame, bestIdx);
-
                         CurrentFrame.mvpMapPoints[bestIdx] = pMP;
                         nmatches++;
 
@@ -1480,8 +1477,6 @@ namespace ORB_SLAM2 {
             for (int i = 0; i < HISTO_LENGTH; i++) {
                 if (i != ind1 && i != ind2 && i != ind3) {
                     for (size_t j = 0, jend = rotHist[i].size(); j < jend; j++) {
-                        MapPoint* pMP = CurrentFrame.mvpMapPoints[rotHist[i][j]];
-                        pMP->EraseFounderOfFrame(&CurrentFrame);
                         CurrentFrame.mvpMapPoints[rotHist[i][j]] = static_cast<MapPoint *>(NULL);
                         nmatches--;
                     }

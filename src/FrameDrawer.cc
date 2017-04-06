@@ -189,10 +189,14 @@ void FrameDrawer::Update(Tracking *pTracker)
             {
                 if(!pTracker->mCurrentFrame.mvbOutlier[i])
                 {
-                    if(pMP->Observations()>0)
-                        mvbMap[i]=true;
-                    else
-                        mvbVO[i]=true;
+//                    if(pMP->Observations()>0)
+//                        mvbMap[i]=true;
+//                    else
+//                        mvbVO[i]=true;
+                    if (pMP->mType == MapPoint::GLOBAL)
+                        mvbMap[i] = true;
+                    else if (pMP->mType == MapPoint::TEMPORAL)
+                        mvbVO[i] = true;
                 }
             }
         }
