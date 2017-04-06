@@ -1432,17 +1432,6 @@ namespace ORB_SLAM2 {
                             if (CurrentFrame.mvpMapPoints[idx]->Observations() > 0)
                                 continue;
 
-//                        if (CurrentFrame.mvuRight[idx] > 0) {
-//                            const float ur = u - CurrentFrame.mbf * invzc;
-//                            const float er = fabs(ur - CurrentFrame.mvuRight[idx]);
-//                            if (er > radius)
-//                                continue;
-//                        }
-//
-//                        const cv::Mat &d = CurrentFrame.mDescriptors.row(idx);
-//
-//                        const int dist = DescriptorDistance(dMP, d);
-
                         const cv::Mat& dCL = CurrentFrame.mDescriptors.row(idx);
                         const cv::Mat& dCR = CurrentFrame.mDescriptorsRight.row(vCurrentMatches[idx]);
 
@@ -1459,6 +1448,9 @@ namespace ORB_SLAM2 {
                     }
 
                     if (bestDist <= TH_HIGH) {
+
+                        pMP->AddFounderOfFrame(&CurrentFrame, bestIdx);
+
                         CurrentFrame.mvpMapPoints[bestIdx] = pMP;
                         nmatches++;
 
@@ -1488,6 +1480,8 @@ namespace ORB_SLAM2 {
             for (int i = 0; i < HISTO_LENGTH; i++) {
                 if (i != ind1 && i != ind2 && i != ind3) {
                     for (size_t j = 0, jend = rotHist[i].size(); j < jend; j++) {
+                        MapPoint* pMP = CurrentFrame.mvpMapPoints[rotHist[i][j]];
+                        pMP->EraseFounderOfFrame(&CurrentFrame);
                         CurrentFrame.mvpMapPoints[rotHist[i][j]] = static_cast<MapPoint *>(NULL);
                         nmatches--;
                     }

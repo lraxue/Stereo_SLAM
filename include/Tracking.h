@@ -138,6 +138,11 @@ protected:
     bool NeedNewKeyFrame();
     void CreateNewKeyFrame();
 
+    // TODO: New functions here!
+    void CreateNewKeyFrameBasedOnFrameFound();
+
+    void UpdateLastFrameBasedOnFrameFound();
+
     // In case of performing only localization, this flag is true when there are no matches to
     // points in the map. Still tracking will continue if there are enough matches with temporal points.
     // In that case we are doing visual odometry. The system will try to do relocalization to recover
