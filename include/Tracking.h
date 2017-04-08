@@ -114,6 +114,11 @@ public:
     void Reset();
 
 protected:
+    // TODO: new functions
+    void TrackBasedOnCircleMatch();
+    void MapInitialization();
+
+protected:
 
     // Main tracking function. It is independent of the input sensor.
     void Track();
@@ -142,6 +147,7 @@ protected:
     void CreateNewKeyFrameBasedOnFrameFound();
 
     void UpdateLastFrameBasedOnFrameFound();
+
 
     // In case of performing only localization, this flag is true when there are no matches to
     // points in the map. Still tracking will continue if there are enough matches with temporal points.

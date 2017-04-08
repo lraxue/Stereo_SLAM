@@ -183,7 +183,8 @@ namespace ORB_SLAM2 {
         mCurrentFrame = Frame(mImGray, imGrayRight, timestamp, mpORBextractorLeft, mpORBextractorRight, mpORBVocabulary,
                               mK, mDistCoef, mbf, mThDepth);
 
-        Track();
+       //  Track();
+        TrackBasedOnCircleMatch();
 
         return mCurrentFrame.mTcw.clone();
     }
@@ -1253,6 +1254,158 @@ namespace ORB_SLAM2 {
 
     void Tracking::InformOnlyTracking(const bool &flag) {
         mbOnlyTracking = flag;
+    }
+
+    void Tracking::TrackBasedOnCircleMatch() {
+        if (mState == NO_IMAGES_YET)
+            mState = NOT_INITIALIZED;
+
+        mLastProcessedState = mState;
+
+        if (mState == NOT_INITIALIZED)
+        {
+            MapInitialization();
+            mpFrameDrawer->Update(this);
+
+            if (mState != OK) return;;
+        }
+        else {
+            // System is initialized. Track Frame
+            bool bOK;
+
+            if (mState == OK) {
+                CheckReplacedInLastFrame();
+
+                if (mVelocity.empty())
+                    bOK = TrackReferenceKeyFrame();
+                else {
+                    bOK = TrackWithMotionModel();
+                    if (!bOK)
+                        bOK = TrackReferenceKeyFrame();
+                }
+            } else {
+                LOG(ERROR) << "LOST!";
+                exit(-1);
+            }
+
+            mCurrentFrame.mpReferenceKF = mpReferenceKF;
+
+            // If we have an initial estimation of the camera pose and matching. Track local map
+            if (bOK)
+                bOK = TrackLocalMap();
+
+            if (bOK)
+                mState = OK;
+            else
+                mState = LOST;
+
+            // Update drawer
+            mpFrameDrawer->Update(this);
+
+            // If tracking is good, check if we insert a keyframe
+            if (bOK)
+            {
+                // Update motion model
+                if (!mLastFrame.mTcw.empty())
+                {
+                    cv::Mat LastTwc = cv::Mat::eye(4, 4, CV_32F);
+                    mLastFrame.GetRotationInverse().copyTo(LastTwc.rowRange(0, 3).colRange(0, 3));
+                    mLastFrame.GetCameraCenter().copyTo(LastTwc.rowRange(0, 3).col(3));
+                    mVelocity = mCurrentFrame.mTcw * LastTwc;
+                }
+                else
+                    mVelocity = cv::Mat();
+
+                mpMapDrawer->SetCurrentCameraPose(mCurrentFrame.mTcw);
+
+                // Check if we need to insert a new KeyFrame
+                if (NeedNewKeyFrame())
+                    CreateNewKeyFrameBasedOnFrameFound();
+
+
+                // Only points with high innovation can pass to the new keyframe
+                for (int i = 0; i < mCurrentFrame.N; ++i)
+                {
+                    if (mCurrentFrame.mvpMapPoints[i] && mCurrentFrame.mvbOutlier[i])
+                        mCurrentFrame.mvpMapPoints[i] = static_cast<MapPoint*>(NULL);
+                }
+            }
+
+            if (mState == LOST)
+                LOG(INFO) << "Hey boy, you got lost!";
+
+            if (!mCurrentFrame.mpReferenceKF)
+                mCurrentFrame.mpReferenceKF = mpReferenceKF;
+
+            mLastFrame = Frame(mCurrentFrame);
+        }
+
+
+        // Store frame pose information to retrieve the complete camera trajectory afterwards.
+        if (!mCurrentFrame.mTcw.empty())
+        {
+            cv::Mat Tcr = mCurrentFrame.mTcw*mCurrentFrame.mpReferenceKF->GetPoseInverse();
+            mlRelativeFramePoses.push_back(Tcr);
+            mlpReferences.push_back(mpReferenceKF);
+            mlFrameTimes.push_back(mCurrentFrame.mTimeStamp);
+            mlbLost.push_back(mState==LOST);
+        }
+        else
+        {
+            // This can happen if tracking is lost
+            mlRelativeFramePoses.push_back(mlRelativeFramePoses.back());
+            mlpReferences.push_back(mlpReferences.back());
+            mlFrameTimes.push_back(mlFrameTimes.back());
+            mlbLost.push_back(mState==LOST);
+        }
+
+    }
+
+
+    void Tracking::MapInitialization() {
+        // Set the Frame pose to the origin
+        mCurrentFrame.SetPose(cv::Mat::eye(4, 4, CV_32F));
+
+        // Create KeyFrame
+        KeyFrame* pKFini = new KeyFrame(mCurrentFrame, mpMap, mpKeyFrameDB);
+
+        // Create MapPoints associate to KeyFrame
+        for (int i = 0; i < mCurrentFrame.N; ++i)
+        {
+            float z = mCurrentFrame.mvDepth[i];
+            if (z > 0)
+            {
+                cv::Mat X3D = mCurrentFrame.UnprojectStereo(i);
+                MapPoint* pNewMP = new MapPoint(X3D, pKFini, mpMap);
+                pNewMP->AddObservation(pKFini, i);
+                pKFini->AddMapPoint(pNewMP, i);
+                pNewMP->ComputeDistinctiveDescriptors();
+                pNewMP->UpdateNormalAndDepth();
+                mpMap->AddMapPoint(pNewMP);
+
+                mCurrentFrame.mvpMapPoints[i] = pNewMP;
+            }
+        }
+
+        LOG(INFO) << "New map created with " << mpMap->MapPointsInMap() << " points";
+
+        mpLocalMapper->InsertKeyFrame(pKFini);
+
+        mLastFrame = Frame(mCurrentFrame);
+        mnLastKeyFrameId = mCurrentFrame.mnId;
+        mpLastKeyFrame = pKFini;
+
+        mvpLocalKeyFrames.push_back(pKFini);
+        mvpLocalMapPoints = mpMap->GetAllMapPoints();
+        mpReferenceKF = pKFini;
+        mCurrentFrame.mpReferenceKF = pKFini;
+
+        mpMap->SetReferenceMapPoints(mvpLocalMapPoints);
+        mpMap->mvpKeyFrameOrigins.push_back(pKFini);
+
+        mpMapDrawer->SetCurrentCameraPose(mCurrentFrame.mTcw);
+
+        mState = OK;
     }
 
 
