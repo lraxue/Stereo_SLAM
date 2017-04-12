@@ -117,6 +117,7 @@ protected:
     // TODO: new functions
     void TrackBasedOnCircleMatch();
     void MapInitialization();
+    bool IsNeedNewKeyFrameBased();
 
 protected:
 

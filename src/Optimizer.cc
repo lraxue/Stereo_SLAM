@@ -453,7 +453,7 @@ int Optimizer::PoseOptimization(Frame *pFrame)
 void Optimizer::LocalBundleAdjustment(KeyFrame *pKF, bool* pbStopFlag, Map* pMap)
 {    
     // Local KeyFrames: First Breath Search from Current Keyframe
-    list<KeyFrame*> lLocalKeyFrames;
+    std::list<KeyFrame*> lLocalKeyFrames;
 
     lLocalKeyFrames.push_back(pKF);
     pKF->mnBALocalForKF = pKF->mnId;
@@ -468,7 +468,7 @@ void Optimizer::LocalBundleAdjustment(KeyFrame *pKF, bool* pbStopFlag, Map* pMap
     }
 
     // Local MapPoints seen in Local KeyFrames
-    list<MapPoint*> lLocalMapPoints;
+    std::list<MapPoint*> lLocalMapPoints;
     for(list<KeyFrame*>::iterator lit=lLocalKeyFrames.begin() , lend=lLocalKeyFrames.end(); lit!=lend; lit++)
     {
         vector<MapPoint*> vpMPs = (*lit)->GetMapPointMatches();

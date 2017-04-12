@@ -183,8 +183,8 @@ namespace ORB_SLAM2 {
         mCurrentFrame = Frame(mImGray, imGrayRight, timestamp, mpORBextractorLeft, mpORBextractorRight, mpORBVocabulary,
                               mK, mDistCoef, mbf, mThDepth);
 
-       //  Track();
-        TrackBasedOnCircleMatch();
+        Track();
+        // TrackBasedOnCircleMatch();
 
         return mCurrentFrame.mTcw.clone();
     }
@@ -289,11 +289,13 @@ namespace ORB_SLAM2 {
                 mlpTemporalPoints.clear();
 
                 // Check if we need to insert a new keyframe
-                if (NeedNewKeyFrame())
-                    CreateNewKeyFrameBasedOnFrameFound();
-                    //CreateNewKeyFrame();
+//                if (NeedNewKeyFrame())
+//                    // CreateNewKeyFrameBasedOnFrameFound();
+//                    CreateNewKeyFrame();
+                if (IsNeedNewKeyFrameBased())
+                    CreateNewKeyFrame();
 
-                // We allow points with high innovation (considererd outliers by the Huber Function)
+                // We allow points with high innovation (considered outliers by the Huber Function)
                 // pass to the new keyframe, so that bundle adjustment will finally decide
                 // if they are outliers or not. We don't want next frame to estimate its position
                 // with those points so we discard them in the frame.
@@ -748,116 +750,6 @@ namespace ORB_SLAM2 {
         mpLastKeyFrame = pKF;
     }
 
-    void Tracking::UpdateLastFrameBasedOnFrameFound() {
-        // Update pose according to reference keyframe
-        KeyFrame *pRef = mLastFrame.mpReferenceKF;
-        cv::Mat Tlr = mlRelativeFramePoses.back();
-
-        mLastFrame.SetPose(Tlr * pRef->GetPose());
-
-//        if (mnLastKeyFrameId == mLastFrame.mnId || mSensor == System::MONOCULAR || !mbOnlyTracking)
-//            return;
-
-        // Create "visual odometry" MapPoints
-        // We sort points according to their measured depth by the stereo sensor
-        int nPoints = 0;
-        int nTrackedPoints = 0;
-        int nNewCreatedPoints = 0;
-        for (int i = 0; i < mLastFrame.N; ++i) {
-            if (mLastFrame.mnMatches[i] < 0) continue;    // Circle match: l-r
-            MapPoint *pMP = mLastFrame.mvpMapPoints[i];
-
-            if (pMP && pMP->mType == MapPoint::TEMPORAL && !mLastFrame.mvbOutlier[i]) {     // If found and taken as an inlier, track successfully.
-                pMP->AddFounderOfFrame(&mLastFrame, i);
-                nTrackedPoints++;
-            }
-
-            bool bCreateNew = false;
-            if (!pMP)
-                bCreateNew = true;
-
-            if (bCreateNew) {
-                cv::Mat X3D = mLastFrame.UnprojectStereo(i);
-                MapPoint *pNewMP = new MapPoint(X3D, mpMap, &mLastFrame, i);
-                pNewMP->AddFounderOfFrame(&mLastFrame, i);                    // Add found by Frame
-
-                mLastFrame.mvpMapPoints[i] = pNewMP;
-                mlpTemporalPoints.push_back(pNewMP);
-                nNewCreatedPoints++;
-                nPoints++;
-            } else {
-                nPoints++;
-            }
-        }
-
-        LOG(INFO) << "Tracked points: " << nTrackedPoints << " ,new created points: " << nNewCreatedPoints << " ,total points: " << nPoints;
-    }
-
-    void Tracking::CreateNewKeyFrameBasedOnFrameFound() {
-        if (!mpLocalMapper->SetNotStop(true))
-            return;
-
-        KeyFrame *pKF = new KeyFrame(mCurrentFrame, mpMap, mpKeyFrameDB);
-
-        mpReferenceKF = pKF;
-        mCurrentFrame.mpReferenceKF = pKF;
-
-        // Create new MapPoints based on Found
-        mCurrentFrame.UpdatePoseMatrices();
-
-        int nPoints = 0;
-        float foundRatio = 0.5;
-        int maxFound = 0;
-        for (int i = 0; i < mCurrentFrame.N; ++i) {
-            MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
-            if (pMP) {
-                if (pMP->mType == MapPoint::TEMPORAL) {
-                    int found = pMP->GetFoundByFrame();
-                    // LOG(INFO) << "Number of frames find point " << pMP->mnId << " : " << found;
-                    if (found > maxFound)
-                        maxFound = found;
-                }
-            }
-        }
-
-        int nNewGlobalPoints = 0;
-        for (int i = 0; i < mCurrentFrame.N; ++i) {
-            if (mCurrentFrame.mnMatches[i] < 0) continue;
-            MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
-            if (pMP && pMP->mType == MapPoint::TEMPORAL) {
-                int found = pMP->GetFoundByFrame();
-                if (found < maxFound * foundRatio) continue;
-
-                cv::Mat X3D = mCurrentFrame.UnprojectStereo(i);
-                MapPoint *pNewMP = new MapPoint(X3D, pKF, mpMap);
-                pNewMP->AddObservation(pKF, i);
-                pNewMP->AddFounderOfFrame(&mCurrentFrame, i);
-                pNewMP->SetType(MapPoint::GLOBAL);           // Upgrade to Global point
-                pKF->AddMapPoint(pNewMP, i);
-                pNewMP->ComputeDistinctiveDescriptors();
-                pNewMP->UpdateNormalAndDepth();
-                mpMap->AddMapPoint(pNewMP);
-
-                mCurrentFrame.mvpMapPoints[i] = pNewMP;
-                nNewGlobalPoints++;
-                nPoints++;
-
-            } else {
-                nPoints++;
-            }
-        }
-
-        LOG(INFO) << "Create new keyframe: " << pKF->mnId << " based on frame: " << mCurrentFrame.mnId
-                  << " with new global points: " << nNewGlobalPoints << " ,total points: " << nPoints;
-
-        mpLocalMapper->InsertKeyFrame(pKF);
-
-        mpLocalMapper->SetNotStop(false);
-
-        mnLastKeyFrameId = mCurrentFrame.mnId;
-        mpLastKeyFrame = pKF;
-    }
-
     void Tracking::SearchLocalPoints() {
         // Do not search map points already matched
         for (vector<MapPoint *>::iterator vit = mCurrentFrame.mvpMapPoints.begin(), vend = mCurrentFrame.mvpMapPoints.end();
@@ -1256,6 +1148,115 @@ namespace ORB_SLAM2 {
         mbOnlyTracking = flag;
     }
 
+    void Tracking::UpdateLastFrameBasedOnFrameFound() {
+        // Update pose according to reference keyframe
+        KeyFrame *pRef = mLastFrame.mpReferenceKF;
+        cv::Mat Tlr = mlRelativeFramePoses.back();
+
+        mLastFrame.SetPose(Tlr * pRef->GetPose());
+
+//        if (mnLastKeyFrameId == mLastFrame.mnId || mSensor == System::MONOCULAR || !mbOnlyTracking)
+//            return;
+
+        // Create "visual odometry" MapPoints
+        // We sort points according to their measured depth by the stereo sensor
+        int nPoints = 0;
+        int nTrackedPoints = 0;
+        int nNewCreatedPoints = 0;
+        for (int i = 0; i < mLastFrame.N; ++i) {
+            if (mLastFrame.mnMatches[i] < 0) continue;    // Circle match: l-r
+            MapPoint *pMP = mLastFrame.mvpMapPoints[i];
+
+            if (pMP && pMP->mType == MapPoint::TEMPORAL && !mLastFrame.mvbOutlier[i]) {     // If found and taken as an inlier, track successfully.
+                pMP->AddFounderOfFrame(&mLastFrame, i);
+                nTrackedPoints++;
+            }
+
+            bool bCreateNew = false;
+            if (!pMP)
+                bCreateNew = true;
+
+            if (bCreateNew) {
+                cv::Mat X3D = mLastFrame.UnprojectStereo(i);
+                MapPoint *pNewMP = new MapPoint(X3D, mpMap, &mLastFrame, i);
+                pNewMP->AddFounderOfFrame(&mLastFrame, i);                    // Add found by Frame
+
+                mLastFrame.mvpMapPoints[i] = pNewMP;
+                mlpTemporalPoints.push_back(pNewMP);
+                nNewCreatedPoints++;
+                nPoints++;
+            } else {
+                nPoints++;
+            }
+        }
+
+        LOG(INFO) << "Tracked points: " << nTrackedPoints << " ,new created points: " << nNewCreatedPoints << " ,total points: " << nPoints;
+    }
+
+    void Tracking::CreateNewKeyFrameBasedOnFrameFound() {
+        if (!mpLocalMapper->SetNotStop(true))
+            return;
+
+        KeyFrame *pKF = new KeyFrame(mCurrentFrame, mpMap, mpKeyFrameDB);
+
+        mpReferenceKF = pKF;
+        mCurrentFrame.mpReferenceKF = pKF;
+
+        // Create new MapPoints based on Found
+        mCurrentFrame.UpdatePoseMatrices();
+
+        int nPoints = 0;
+        float foundRatio = 0.5;
+        int maxFound = 0;
+        for (int i = 0; i < mCurrentFrame.N; ++i) {
+            MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
+            if (pMP) {
+                if (pMP->mType == MapPoint::TEMPORAL) {
+                    int found = pMP->GetFoundByFrame();
+                    // LOG(INFO) << "Number of frames find point " << pMP->mnId << " : " << found;
+                    if (found > maxFound)
+                        maxFound = found;
+                }
+            }
+        }
+
+        int nNewGlobalPoints = 0;
+        for (int i = 0; i < mCurrentFrame.N; ++i) {
+            if (mCurrentFrame.mnMatches[i] < 0) continue;
+            MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
+            if (pMP && pMP->mType == MapPoint::TEMPORAL) {
+                int found = pMP->GetFoundByFrame();
+                if (found < maxFound * foundRatio) continue;
+
+                cv::Mat X3D = mCurrentFrame.UnprojectStereo(i);
+                MapPoint *pNewMP = new MapPoint(X3D, pKF, mpMap);
+                pNewMP->AddObservation(pKF, i);
+                pNewMP->AddFounderOfFrame(&mCurrentFrame, i);
+                pNewMP->SetType(MapPoint::GLOBAL);           // Upgrade to Global point
+                pKF->AddMapPoint(pNewMP, i);
+                pNewMP->ComputeDistinctiveDescriptors();
+                pNewMP->UpdateNormalAndDepth();
+                mpMap->AddMapPoint(pNewMP);
+
+                mCurrentFrame.mvpMapPoints[i] = pNewMP;
+                nNewGlobalPoints++;
+                nPoints++;
+
+            } else {
+                nPoints++;
+            }
+
+            LOG(INFO) << "Create new keyframe: " << pKF->mnId << " based on frame: " << mCurrentFrame.mnId
+                      << " with new global points: " << nNewGlobalPoints << " ,total points: " << nPoints;
+
+            mpLocalMapper->InsertKeyFrame(pKF);
+
+            mpLocalMapper->SetNotStop(false);
+
+        }
+        mnLastKeyFrameId = mCurrentFrame.mnId;
+        mpLastKeyFrame = pKF;
+    }
     void Tracking::TrackBasedOnCircleMatch() {
         if (mState == NO_IMAGES_YET)
             mState = NOT_INITIALIZED;
@@ -1407,6 +1408,16 @@ namespace ORB_SLAM2 {
 
         mState = OK;
     }
+
+    bool Tracking::IsNeedNewKeyFrameBased() {
+        // We take each Frame as a KeyFrame
+        // So the answer is always, YES!
+
+        return true;
+    }
+
+
+
 
 
 } //namespace ORB_SLAM

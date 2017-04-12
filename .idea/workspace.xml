@@ -13,7 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="222d14e4-48c2-496d-88c2-3eac2cfe2877" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/GlobalValues.h" afterPath="$PROJECT_DIR$/include/GlobalValues.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/LocalMapping.h" afterPath="$PROJECT_DIR$/include/LocalMapping.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Tracking.h" afterPath="$PROJECT_DIR$/include/Tracking.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/utils.h" afterPath="$PROJECT_DIR$/include/utils.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LocalMapping.cc" afterPath="$PROJECT_DIR$/src/LocalMapping.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Optimizer.cc" afterPath="$PROJECT_DIR$/src/Optimizer.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/System.cc" afterPath="$PROJECT_DIR$/src/System.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tracking.cc" afterPath="$PROJECT_DIR$/src/Tracking.cc" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -27,161 +33,18 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tracking.cc" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="186" column="34" lean-forward="false" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
-              <folding>
-                <element signature="e#829#850#0" expanded="true" />
-                <element signature="e#1197#5412#0" expanded="false" />
-                <element signature="e#5418#5521#0" expanded="false" />
-                <element signature="e#5527#5629#0" expanded="false" />
-                <element signature="e#5635#5712#0" expanded="false" />
-                <element signature="e#12766#14833#0" expanded="false" />
-                <element signature="e#16588#18443#0" expanded="false" />
-                <element signature="e#18449#20803#0" expanded="false" />
-                <element signature="e#20809#22193#0" expanded="false" />
-                <element signature="e#22199#25289#0" expanded="false" />
-                <element signature="e#25295#27950#0" expanded="false" />
-                <element signature="e#29759#32144#0" expanded="false" />
-                <element signature="e#32150#33811#0" expanded="false" />
-                <element signature="e#33817#34030#0" expanded="false" />
-                <element signature="e#34036#34923#0" expanded="false" />
-                <element signature="e#34930#38728#0" expanded="false" />
-                <element signature="e#38734#44381#0" expanded="false" />
-                <element signature="e#44387#45527#0" expanded="false" />
-                <element signature="e#45533#46588#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tracking.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/Tracking.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1640">
-              <caret line="118" column="29" lean-forward="false" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="System.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/System.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalMapping.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1316">
-              <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-              <folding>
-                <element signature="e#4546#5562#0" expanded="false" />
-                <element signature="e#5564#14500#0" expanded="false" />
-                <element signature="e#14502#17397#0" expanded="false" />
-                <element signature="e#17399#17863#0" expanded="false" />
-                <element signature="e#17865#18036#0" expanded="false" />
-                <element signature="e#18038#18270#0" expanded="false" />
-                <element signature="e#18371#18478#0" expanded="false" />
-                <element signature="e#18480#18888#0" expanded="false" />
-                <element signature="e#18890#19003#0" expanded="false" />
-                <element signature="e#19005#19128#0" expanded="false" />
-                <element signature="e#19130#19305#0" expanded="false" />
-                <element signature="e#19307#19365#0" expanded="false" />
-                <element signature="e#19367#21797#0" expanded="false" />
-                <element signature="e#21799#22070#0" expanded="false" />
-                <element signature="e#22072#22376#0" expanded="false" />
-                <element signature="e#22378#22603#0" expanded="false" />
-                <element signature="e#22605#22716#0" expanded="false" />
-                <element signature="e#22718#22827#0" expanded="false" />
-                <element signature="e#22829#22997#0" expanded="false" />
-                <element signature="e#22999#23100#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ORBmatcher.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ORBmatcher.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="746" column="22" lean-forward="false" selection-start-line="746" selection-start-column="22" selection-end-line="746" selection-end-column="22" />
-              <folding>
-                <element signature="e#828#851#0" expanded="true" />
-                <element signature="e#1343#4069#0" expanded="false" />
-                <element signature="e#4075#4231#0" expanded="false" />
-                <element signature="e#4238#5073#0" expanded="false" />
-                <element signature="e#5079#9324#0" expanded="false" />
-                <element signature="e#9330#13080#0" expanded="false" />
-                <element signature="e#13086#16788#0" expanded="false" />
-                <element signature="e#16794#21362#0" expanded="false" />
-                <element signature="e#31716#35747#0" expanded="false" />
-                <element signature="e#35753#42674#0" expanded="false" />
-                <element signature="e#42680#47905#0" expanded="false" />
-                <element signature="e#53680#58395#0" expanded="false" />
-                <element signature="e#58401#59281#0" expanded="false" />
-                <element signature="e#59284#59878#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ORBmatcher.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/ORBmatcher.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1924">
-              <caret line="74" column="8" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalMapping.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/LocalMapping.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1976">
-              <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stereo_kitti.cc" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stereo_kitti.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1664">
-              <caret line="64" column="38" lean-forward="false" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+            <state relative-caret-position="341">
+              <caret line="141" column="16" lean-forward="false" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
               <folding>
                 <element signature="e#829#847#0" expanded="true" />
-                <element signature="e#3075#3157#0" expanded="true" />
-                <element signature="e#3384#3466#0" expanded="true" />
-                <element signature="e#4500#5517#0" expanded="false" />
+                <element signature="e#3605#3687#0" expanded="true" />
+                <element signature="e#3914#3996#0" expanded="true" />
+                <element signature="e#5054#6071#0" expanded="false" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/utils.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="910">
-              <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kitti00.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
@@ -203,12 +66,15 @@
         <option value="$PROJECT_DIR$/src/ORBmatcher.cc" />
         <option value="$PROJECT_DIR$/src/FrameDrawer.cc" />
         <option value="$PROJECT_DIR$/src/MapPoint.cc" />
+        <option value="$PROJECT_DIR$/include/Tracking.h" />
+        <option value="$PROJECT_DIR$/src/Tracking.cc" />
+        <option value="$PROJECT_DIR$/src/Optimizer.cc" />
+        <option value="$PROJECT_DIR$/include/LocalMapping.h" />
+        <option value="$PROJECT_DIR$/src/System.cc" />
+        <option value="$PROJECT_DIR$/src/LocalMapping.cc" />
         <option value="$PROJECT_DIR$/include/GlobalValues.h" />
         <option value="$PROJECT_DIR$/include/utils.h" />
         <option value="$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc" />
-        <option value="$PROJECT_DIR$/src/System.cc" />
-        <option value="$PROJECT_DIR$/include/Tracking.h" />
-        <option value="$PROJECT_DIR$/src/Tracking.cc" />
       </list>
     </option>
   </component>
@@ -220,10 +86,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="1092" />
+    <option name="x" value="65" />
+    <option name="y" value="-6" />
+    <option name="width" value="1855" />
+    <option name="height" value="1086" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -266,34 +132,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stereo_SLAM" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stereo_SLAM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="include" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stereo_SLAM" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stereo_SLAM" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cmake-build-debug" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,35 +377,36 @@
       <updated>1491391318101</updated>
       <workItem from="1491391319407" duration="28834000" />
       <workItem from="1491528327773" duration="3826000" />
-      <workItem from="1491660675083" duration="3758000" />
+      <workItem from="1491660675083" duration="3844000" />
+      <workItem from="1491707083190" duration="11834000" />
+      <workItem from="1491877098424" duration="9848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36418000" />
+    <option name="totallyTimeSpent" value="58186000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
+    <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12506738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.59706193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43126968" sideWeight="0.43126684" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.77019936" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27177334" sideWeight="0.56873316" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11212938" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18677859" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3925845" sideWeight="0.49811116" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23504722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27177334" sideWeight="0.43126684" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30325288" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -579,251 +418,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/LocalMapping.cc</url>
-          <line>615</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14586">
-          <caret line="561" column="0" lean-forward="false" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
-          <folding>
-            <element signature="e#829#850#0" expanded="true" />
-            <element signature="e#1197#5412#0" expanded="false" />
-            <element signature="e#5418#5521#0" expanded="false" />
-            <element signature="e#5527#5629#0" expanded="false" />
-            <element signature="e#5635#5712#0" expanded="false" />
-            <element signature="e#12766#14833#0" expanded="false" />
-            <element signature="e#16588#18443#0" expanded="false" />
-            <element signature="e#18449#20803#0" expanded="false" />
-            <element signature="e#20809#22193#0" expanded="false" />
-            <element signature="e#22199#25289#0" expanded="false" />
-            <element signature="e#25295#27950#0" expanded="false" />
-            <element signature="e#29759#32144#0" expanded="false" />
-            <element signature="e#32150#33811#0" expanded="false" />
-            <element signature="e#33817#34030#0" expanded="false" />
-            <element signature="e#34036#34923#0" expanded="false" />
-            <element signature="e#34930#38728#0" expanded="false" />
-            <element signature="e#38734#44381#0" expanded="false" />
-            <element signature="e#44387#45527#0" expanded="false" />
-            <element signature="e#45533#46588#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/System.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2314">
-          <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ORBmatcher.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19396">
-          <caret line="746" column="22" lean-forward="false" selection-start-line="746" selection-start-column="22" selection-end-line="746" selection-end-column="22" />
-          <folding>
-            <element signature="e#828#851#0" expanded="true" />
-            <element signature="e#1343#4069#0" expanded="false" />
-            <element signature="e#4075#4231#0" expanded="false" />
-            <element signature="e#4238#5073#0" expanded="false" />
-            <element signature="e#5079#9324#0" expanded="false" />
-            <element signature="e#9330#13080#0" expanded="false" />
-            <element signature="e#13086#16788#0" expanded="false" />
-            <element signature="e#16794#21362#0" expanded="false" />
-            <element signature="e#31716#35747#0" expanded="false" />
-            <element signature="e#35753#42674#0" expanded="false" />
-            <element signature="e#42680#47905#0" expanded="false" />
-            <element signature="e#53680#58395#0" expanded="false" />
-            <element signature="e#58401#59281#0" expanded="false" />
-            <element signature="e#59284#59878#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/ORBmatcher.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1924">
-          <caret line="74" column="8" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/LocalMapping.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1976">
-          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1664">
-          <caret line="64" column="38" lean-forward="false" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
-          <folding>
-            <element signature="e#829#847#0" expanded="true" />
-            <element signature="e#3075#3157#0" expanded="true" />
-            <element signature="e#3384#3466#0" expanded="true" />
-            <element signature="e#4500#5517#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/GlobalValues.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/utils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7306">
-          <caret line="281" column="42" lean-forward="true" selection-start-line="281" selection-start-column="42" selection-end-line="281" selection-end-column="42" />
-          <folding>
-            <element signature="e#4546#5562#0" expanded="false" />
-            <element signature="e#5564#14500#0" expanded="false" />
-            <element signature="e#14502#17397#0" expanded="false" />
-            <element signature="e#17399#17863#0" expanded="false" />
-            <element signature="e#17865#18036#0" expanded="false" />
-            <element signature="e#18038#18270#0" expanded="false" />
-            <element signature="e#18371#18478#0" expanded="false" />
-            <element signature="e#18480#18888#0" expanded="false" />
-            <element signature="e#18890#19003#0" expanded="false" />
-            <element signature="e#19005#19128#0" expanded="false" />
-            <element signature="e#19130#19305#0" expanded="false" />
-            <element signature="e#19307#19365#0" expanded="false" />
-            <element signature="e#19367#21797#0" expanded="false" />
-            <element signature="e#21799#22070#0" expanded="false" />
-            <element signature="e#22072#22376#0" expanded="false" />
-            <element signature="e#22378#22603#0" expanded="false" />
-            <element signature="e#22605#22716#0" expanded="false" />
-            <element signature="e#22718#22827#0" expanded="false" />
-            <element signature="e#22829#22997#0" expanded="false" />
-            <element signature="e#22999#23100#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/MapPoint.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret line="105" column="25" lean-forward="true" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapPoint.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14586">
-          <caret line="561" column="0" lean-forward="true" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
-          <folding>
-            <element signature="e#829#850#0" expanded="true" />
-            <element signature="e#1197#5412#0" expanded="false" />
-            <element signature="e#5418#5521#0" expanded="false" />
-            <element signature="e#5527#5629#0" expanded="false" />
-            <element signature="e#5635#5712#0" expanded="false" />
-            <element signature="e#12766#14833#0" expanded="false" />
-            <element signature="e#16588#18443#0" expanded="false" />
-            <element signature="e#18449#20803#0" expanded="false" />
-            <element signature="e#20809#22193#0" expanded="false" />
-            <element signature="e#22199#25289#0" expanded="false" />
-            <element signature="e#25295#27950#0" expanded="false" />
-            <element signature="e#29759#32144#0" expanded="false" />
-            <element signature="e#32150#33811#0" expanded="false" />
-            <element signature="e#33817#34030#0" expanded="false" />
-            <element signature="e#34036#34923#0" expanded="false" />
-            <element signature="e#34930#38728#0" expanded="false" />
-            <element signature="e#38734#44381#0" expanded="false" />
-            <element signature="e#44387#45527#0" expanded="false" />
-            <element signature="e#45533#46588#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1664">
-          <caret line="64" column="38" lean-forward="false" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
-          <folding>
-            <element signature="e#829#847#0" expanded="true" />
-            <element signature="e#3075#3157#0" expanded="true" />
-            <element signature="e#3384#3466#0" expanded="true" />
-            <element signature="e#4500#5517#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/GlobalValues.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/utils.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrameDrawer.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4888">
-          <caret line="188" column="12" lean-forward="true" selection-start-line="188" selection-start-column="12" selection-end-line="188" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/traj-novo.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -857,7 +456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="138" column="31" lean-forward="true" selection-start-line="138" selection-start-column="31" selection-end-line="138" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,7 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,7 +484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-858">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -912,36 +508,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/GlobalValues.h">
+    <entry file="file://$PROJECT_DIR$/include/ORBmatcher.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="80" />
+        <state relative-caret-position="1924">
+          <caret line="74" column="8" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/x86_64-linux-gnu/c++/5/bits/gthr-default.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="747" column="0" lean-forward="false" selection-start-line="747" selection-start-column="0" selection-end-line="747" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/5/mutex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Tracking.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="119" column="31" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/utils.h">
+    <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
-          <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1664">
-          <caret line="64" column="38" lean-forward="false" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+        <state relative-caret-position="7670">
+          <caret line="295" column="40" lean-forward="false" selection-start-line="295" selection-start-column="40" selection-end-line="295" selection-end-column="40" />
           <folding>
-            <element signature="e#829#847#0" expanded="true" />
-            <element signature="e#3075#3157#0" expanded="true" />
-            <element signature="e#3384#3466#0" expanded="true" />
-            <element signature="e#4500#5517#0" expanded="false" />
+            <element signature="e#829#850#0" expanded="true" />
+            <element signature="e#25388#28043#0" expanded="false" />
+            <element signature="e#42589#44386#0" expanded="false" />
+            <element signature="e#44392#46793#0" expanded="false" />
+            <element signature="e#46798#50280#0" expanded="false" />
+            <element signature="e#50287#51829#0" expanded="false" />
+            <marker date="1491713483572" expanded="false" signature="1736:5412" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="5476:5521" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="5584:5629" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="5677:5712" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="12897:14926" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="14974:15288" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="15334:16675" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="16714:18536" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="18580:20896" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="20933:22286" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="22325:25382" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="28084:29710" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="29748:29929" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="29970:30822" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="30867:34627" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="34665:40280" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="40309:41426" ph="{...}" />
+            <marker date="1491713483572" expanded="false" signature="41495:42487" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -951,55 +575,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/LocalMapping.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1976">
-          <caret line="76" column="9" lean-forward="false" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/ORBmatcher.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1924">
-          <caret line="74" column="8" lean-forward="false" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1316">
-          <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-          <folding>
-            <element signature="e#4546#5562#0" expanded="false" />
-            <element signature="e#5564#14500#0" expanded="false" />
-            <element signature="e#14502#17397#0" expanded="false" />
-            <element signature="e#17399#17863#0" expanded="false" />
-            <element signature="e#17865#18036#0" expanded="false" />
-            <element signature="e#18038#18270#0" expanded="false" />
-            <element signature="e#18371#18478#0" expanded="false" />
-            <element signature="e#18480#18888#0" expanded="false" />
-            <element signature="e#18890#19003#0" expanded="false" />
-            <element signature="e#19005#19128#0" expanded="false" />
-            <element signature="e#19130#19305#0" expanded="false" />
-            <element signature="e#19307#19365#0" expanded="false" />
-            <element signature="e#19367#21797#0" expanded="false" />
-            <element signature="e#21799#22070#0" expanded="false" />
-            <element signature="e#22072#22376#0" expanded="false" />
-            <element signature="e#22378#22603#0" expanded="false" />
-            <element signature="e#22605#22716#0" expanded="false" />
-            <element signature="e#22718#22827#0" expanded="false" />
-            <element signature="e#22829#22997#0" expanded="false" />
-            <element signature="e#22999#23100#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ORBmatcher.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="746" column="22" lean-forward="false" selection-start-line="746" selection-start-column="22" selection-end-line="746" selection-end-column="22" />
+        <state relative-caret-position="16354">
+          <caret line="629" column="44" lean-forward="false" selection-start-line="629" selection-start-column="44" selection-end-line="629" selection-end-column="44" />
           <folding>
             <element signature="e#828#851#0" expanded="true" />
             <element signature="e#1343#4069#0" expanded="false" />
@@ -1019,46 +598,218 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Optimizer.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9230">
+          <caret line="355" column="23" lean-forward="false" selection-start-line="355" selection-start-column="23" selection-end-line="355" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/System.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+        <state relative-caret-position="0">
+          <caret line="93" column="51" lean-forward="false" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/Tracking.h">
+    <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1640">
-          <caret line="118" column="29" lean-forward="false" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="186" column="34" lean-forward="false" selection-start-line="186" selection-start-column="34" selection-end-line="186" selection-end-column="34" />
+        <state relative-caret-position="368">
+          <caret line="701" column="40" lean-forward="false" selection-start-line="701" selection-start-column="40" selection-end-line="701" selection-end-column="40" />
           <folding>
-            <element signature="e#829#850#0" expanded="true" />
-            <element signature="e#1197#5412#0" expanded="false" />
-            <element signature="e#5418#5521#0" expanded="false" />
-            <element signature="e#5527#5629#0" expanded="false" />
-            <element signature="e#5635#5712#0" expanded="false" />
-            <element signature="e#12766#14833#0" expanded="false" />
-            <element signature="e#16588#18443#0" expanded="false" />
-            <element signature="e#18449#20803#0" expanded="false" />
-            <element signature="e#20809#22193#0" expanded="false" />
-            <element signature="e#22199#25289#0" expanded="false" />
-            <element signature="e#25295#27950#0" expanded="false" />
-            <element signature="e#29759#32144#0" expanded="false" />
-            <element signature="e#32150#33811#0" expanded="false" />
-            <element signature="e#33817#34030#0" expanded="false" />
-            <element signature="e#34036#34923#0" expanded="false" />
-            <element signature="e#34930#38728#0" expanded="false" />
-            <element signature="e#38734#44381#0" expanded="false" />
-            <element signature="e#44387#45527#0" expanded="false" />
-            <element signature="e#45533#46588#0" expanded="false" />
+            <element signature="e#5926#15718#0" expanded="false" />
+            <element signature="e#15724#18942#0" expanded="false" />
+            <element signature="e#18948#19470#0" expanded="false" />
+            <element signature="e#19476#19667#0" expanded="false" />
+            <element signature="e#19673#19934#0" expanded="false" />
+            <element signature="e#20055#20174#0" expanded="false" />
+            <element signature="e#20180#20639#0" expanded="false" />
+            <element signature="e#20645#20770#0" expanded="false" />
+            <element signature="e#20776#20913#0" expanded="false" />
+            <element signature="e#20919#21119#0" expanded="false" />
+            <element signature="e#21125#21191#0" expanded="false" />
+            <element signature="e#21197#23778#0" expanded="false" />
+            <element signature="e#23784#24033#0" expanded="false" />
+            <element signature="e#24039#24393#0" expanded="false" />
+            <element signature="e#24399#24651#0" expanded="false" />
+            <element signature="e#24657#24780#0" expanded="false" />
+            <element signature="e#24786#24907#0" expanded="false" />
+            <element signature="e#24913#25097#0" expanded="false" />
+            <element signature="e#25103#25216#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti-gt00.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti-gt02.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti-gt03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti-gt08.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/LocalMapping.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="76" column="27" lean-forward="false" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+          <folding>
+            <element signature="e#875#896#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="68" column="11" lean-forward="false" selection-start-line="68" selection-start-column="11" selection-end-line="68" selection-end-column="11" />
+          <folding>
+            <element signature="e#169#1119#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT01.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/GlobalValues.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT02.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00-no-keyfrsmes-just-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT03.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT04.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Examples/Stereo/KITTI04-12.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/kitti00-no-keyfrsmes.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT06.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT05.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT07.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT08.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT09.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/KITTI-GT10.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt02-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt03-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt04-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt00-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt06-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt05-stereo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="141" column="16" lean-forward="false" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="16" />
+          <folding>
+            <element signature="e#829#847#0" expanded="true" />
+            <element signature="e#3605#3687#0" expanded="true" />
+            <element signature="e#3914#3996#0" expanded="true" />
+            <element signature="e#5054#6071#0" expanded="false" />
           </folding>
         </state>
       </provider>
