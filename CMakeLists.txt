@@ -70,6 +70,7 @@ add_executable(${PROJECT_NAME}
         src/Initializer.cc
         src/Viewer.cc
         Examples/Stereo/stereo_kitti.cc
+#        Examples/Stereo/stereo_euroc.cc
         )
 
 target_link_libraries(${PROJECT_NAME}

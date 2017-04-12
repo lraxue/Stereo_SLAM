@@ -113,6 +113,12 @@ namespace ORB_SLAM2 {
 
         void SetType(const mPointType& type);
 
+        void Upgrade();
+
+        float GetFrameFoundRatio() {
+                return mfFoundRatio;
+        }
+
     public:
         long unsigned int mnId;
         static long unsigned int nNextId;
@@ -153,6 +159,9 @@ namespace ORB_SLAM2 {
         std::map<Frame*, size_t> mFounders;
 
         int nFoundByFrame;
+
+        float mfFoundRatio;
+        int mnMaxFrameId;
 
         // Position in absolute coordinates
         cv::Mat mWorldPos;

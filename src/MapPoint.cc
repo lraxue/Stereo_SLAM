@@ -33,7 +33,7 @@ namespace ORB_SLAM2 {
             mnLastFrameSeen(0), mnBALocalForKF(0), mnFuseCandidateForKF(0), mnLoopPointForKF(0), mnCorrectedByKF(0),
             mnCorrectedReference(0), mnBAGlobalForKF(0), mpRefKF(pRefKF), mnVisible(1), mnFound(1), mbBad(false),
             mpReplaced(static_cast<MapPoint *>(NULL)), mfMinDistance(0), mfMaxDistance(0), mpMap(pMap),
-            mType(GLOBAL), nFoundByFrame(0) {
+            mType(GLOBAL), nFoundByFrame(0), mfFoundRatio(-1.0f), mnMaxFrameId(0){
         Pos.copyTo(mWorldPos);
         mNormalVector = cv::Mat::zeros(3, 1, CV_32F);
 
@@ -46,7 +46,7 @@ namespace ORB_SLAM2 {
             mnFirstKFid(-1), mnFirstFrame(pFrame->mnId), nObs(0), mnTrackReferenceForFrame(0), mnLastFrameSeen(0),
             mnBALocalForKF(0), mnFuseCandidateForKF(0), mnLoopPointForKF(0), mnCorrectedByKF(0),
             mnCorrectedReference(0), mnBAGlobalForKF(0), mpRefKF(static_cast<KeyFrame *>(NULL)), mnVisible(1),
-            mnFound(1), mbBad(false), mpReplaced(NULL), mpMap(pMap), mType(TEMPORAL), nFoundByFrame(2) {
+            mnFound(1), mbBad(false), mpReplaced(NULL), mpMap(pMap), mType(TEMPORAL), nFoundByFrame(2), mfFoundRatio(0.0f), mnMaxFrameId(pFrame->mnId) {
         Pos.copyTo(mWorldPos);
         cv::Mat Ow = pFrame->GetCameraCenter();
         mNormalVector = mWorldPos - Ow;
@@ -389,9 +389,15 @@ namespace ORB_SLAM2 {
     void MapPoint::AddFounderOfFrame(Frame *pF, size_t idx) {
         if (mFounders.count(pF) > 0)
             return;
+
+        if (pF->mnId > mnMaxFrameId)
+            mnMaxFrameId = pF->mnId;
+
         mFounders[pF] = idx;
 
         nFoundByFrame += 2;
+
+        mfFoundRatio = nFoundByFrame / (float)(mnMaxFrameId - mnFirstFrame);
     }
 
     void MapPoint::EraseFounderOfFrame(Frame *pF) {
@@ -413,4 +419,8 @@ namespace ORB_SLAM2 {
         mType = type;
     }
 
+    void MapPoint::Upgrade() {
+        mType = GLOBAL;
+
+    }
 } //namespace ORB_SLAM
