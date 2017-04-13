@@ -41,7 +41,7 @@ namespace ORB_SLAM2 {
     public:
         enum mPointType {
             TEMPORAL = 0,
-            GLOBAL = 0
+            GLOBAL = 1
         };
     public:
         MapPoint(const cv::Mat &Pos, KeyFrame *pRefKF, Map *pMap);
@@ -117,6 +117,10 @@ namespace ORB_SLAM2 {
 
         float GetFrameFoundRatio() {
                 return mfFoundRatio;
+        }
+
+        void SetReferenceKF(KeyFrame* pKF) {
+            mpRefKF = pKF;
         }
 
     public:

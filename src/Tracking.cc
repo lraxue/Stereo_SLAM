@@ -184,7 +184,15 @@ namespace ORB_SLAM2 {
                               mK, mDistCoef, mbf, mThDepth);
 
         Track();
-        // TrackBasedOnCircleMatch();
+
+        for (int i =0; i < mLastFrame.N; ++i)
+        {
+            MapPoint* pMP = mLastFrame.mvpMapPoints[i];
+            if (pMP)
+            {
+                LOG(INFO) << "MapPoint: " << pMP->mnId << ", Frame: " << pMP->mnFirstFrame << " type: " << pMP->mType;
+            }
+        }
 
         return mCurrentFrame.mTcw.clone();
     }
@@ -219,7 +227,7 @@ namespace ORB_SLAM2 {
                 // Local Mapping might have changed some MapPoints tracked in last frame
                 CheckReplacedInLastFrame();
 
-                if (mVelocity.empty() || mCurrentFrame.mnId < mnLastRelocFrameId + 2) {
+                if (mVelocity.empty() ) { // || mCurrentFrame.mnId < mnLastRelocFrameId + 2
                     bOK = TrackReferenceKeyFrame();
                 } else {
                     bOK = TrackWithMotionModel();
@@ -261,39 +269,39 @@ namespace ORB_SLAM2 {
                 mpMapDrawer->SetCurrentCameraPose(mCurrentFrame.mTcw);
 
                 // Clean VO matches
-                for (int i = 0; i < mCurrentFrame.N; i++) {
-                    MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
-                    if (pMP)
-                        if (pMP->Observations() < 1) {
-                            mCurrentFrame.mvbOutlier[i] = false;
-                            mCurrentFrame.mvpMapPoints[i] = static_cast<MapPoint *>(NULL);
-                        }
-                }
+//                for (int i = 0; i < mCurrentFrame.N; i++) {
+//                    MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
+//                    if (pMP)
+//                        if (pMP->Observations() < 1) {
+//                            mCurrentFrame.mvbOutlier[i] = false;
+//                            mCurrentFrame.mvpMapPoints[i] = static_cast<MapPoint *>(NULL);
+//                        }
+//                }
 
                 // Delete temporal MapPoints
-                for (list<MapPoint *>::iterator lit = mlpTemporalPoints.begin(), lend = mlpTemporalPoints.end();
-                     lit != lend; lit++) {
-                    MapPoint *pMP = *lit;
-                    delete pMP;
-                }
-                mlpTemporalPoints.clear();
+//                for (list<MapPoint *>::iterator lit = mlpTemporalPoints.begin(), lend = mlpTemporalPoints.end();
+//                     lit != lend; lit++) {
+//                    MapPoint *pMP = *lit;
+//                    delete pMP;
+//                }
+//                mlpTemporalPoints.clear();
 
                 // Check if we need to insert a new keyframe
 //                if (NeedNewKeyFrame())
 //                    CreateNewKeyFrameBasedOnFrameFound();
 //                    CreateNewKeyFrame();
                 if (IsNeedNewKeyFrameBased())
-                    //CreateNewKeyFrameBasedOnFrameFound();
-                    CreateNewKeyFrame();
+                    CreateNewKeyFrameBasedOnFrameFound();
+                    //CreateNewKeyFrame();
 
                 // We allow points with high innovation (considered outliers by the Huber Function)
                 // pass to the new keyframe, so that bundle adjustment will finally decide
                 // if they are outliers or not. We don't want next frame to estimate its position
                 // with those points so we discard them in the frame.
-                for (int i = 0; i < mCurrentFrame.N; i++) {
-                    if (mCurrentFrame.mvpMapPoints[i] && mCurrentFrame.mvbOutlier[i])
-                        mCurrentFrame.mvpMapPoints[i] = static_cast<MapPoint *>(NULL);
-                }
+//                for (int i = 0; i < mCurrentFrame.N; i++) {
+//                    if (mCurrentFrame.mvpMapPoints[i] && mCurrentFrame.mvbOutlier[i])
+//                        mCurrentFrame.mvpMapPoints[i] = static_cast<MapPoint *>(NULL);
+//                }
             }
 
             // Reset if the camera get lost soon after initialization
@@ -545,11 +553,6 @@ namespace ORB_SLAM2 {
         }
 
         LOG(INFO) << "Points by circle match: " << nSearched << " , after position: " << nmatches;
-
-        if (mbOnlyTracking) {
-            mbVO = nmatchesMap < 10;
-            return nmatches > 20;
-        }
 
         return nmatchesMap >= 10;
     }
@@ -1151,6 +1154,7 @@ namespace ORB_SLAM2 {
         // We sort points according to their measured depth by the stereo sensor
         int nPoints = 0;
         int nTrackedPoints = 0;
+        int nTrackedGlobalPoints = 0;
         int nNewCreatedPoints = 0;
         for (int i = 0; i < mLastFrame.N; ++i) {
             if (mLastFrame.mnMatches[i] < 0) continue;    // Circle match: l-r
@@ -1161,9 +1165,15 @@ namespace ORB_SLAM2 {
                 pMP->AddFounderOfFrame(&mLastFrame, i);
                 nTrackedPoints++;
             }
+            if (pMP && pMP->mType == MapPoint::GLOBAL && !mLastFrame.mvbOutlier[i])
+            {
+                nTrackedGlobalPoints++;
+            }
 
-            bool bCreateNew = false;
+            bool bCreateNew = false;             // Outliers or untracked, reinitialized.
             if (!pMP)
+                bCreateNew = true;
+            else if (mLastFrame.mvbOutlier[i])
                 bCreateNew = true;
 
             if (bCreateNew) {
@@ -1172,7 +1182,8 @@ namespace ORB_SLAM2 {
                 pNewMP->AddFounderOfFrame(&mLastFrame, i);                    // Add found by Frame
 
                 mLastFrame.mvpMapPoints[i] = pNewMP;
-                mlpTemporalPoints.push_back(pNewMP);
+                mLastFrame.mvbOutlier[i] = false;
+                // mlpTemporalPoints.push_back(pNewMP);
                 nNewCreatedPoints++;
                 nPoints++;
             } else {
@@ -1180,7 +1191,7 @@ namespace ORB_SLAM2 {
             }
         }
 
-        LOG(INFO) << "Tracked points: " << nTrackedPoints << " ,new created points: " << nNewCreatedPoints
+        LOG(INFO) << "Tracked temporal points: " << nTrackedPoints << " , tracked global points:" << nTrackedGlobalPoints << " ,new created points: " << nNewCreatedPoints
                   << " ,total points: " << nPoints;
     }
 
@@ -1206,6 +1217,7 @@ namespace ORB_SLAM2 {
             if (pMP && pMP->mType == MapPoint::TEMPORAL)
             {
                 if (pMP->GetFrameFoundRatio() > foundRatio) {   // Found by enough Frame
+                    pMP->SetReferenceKF(pKF);                   // Set reference KF
                     pMP->AddObservation(pKF, i);
                     pMP->SetType(MapPoint::GLOBAL);           // Upgrade to Global point
                     pKF->AddMapPoint(pMP, i);
@@ -1217,7 +1229,7 @@ namespace ORB_SLAM2 {
                     nPoints++;
                 }
 
-            } else if (pMP){
+            } else if (pMP && pMP->mType == MapPoint::GLOBAL){
                 nPoints++;
             }
         }

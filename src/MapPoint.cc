@@ -33,7 +33,7 @@ namespace ORB_SLAM2 {
             mnLastFrameSeen(0), mnBALocalForKF(0), mnFuseCandidateForKF(0), mnLoopPointForKF(0), mnCorrectedByKF(0),
             mnCorrectedReference(0), mnBAGlobalForKF(0), mpRefKF(pRefKF), mnVisible(1), mnFound(1), mbBad(false),
             mpReplaced(static_cast<MapPoint *>(NULL)), mfMinDistance(0), mfMaxDistance(0), mpMap(pMap),
-            mType(GLOBAL), nFoundByFrame(0), mfFoundRatio(-1.0f), mnMaxFrameId(0){
+            mType(TEMPORAL), nFoundByFrame(0), mfFoundRatio(-1.0f), mnMaxFrameId(0){
         Pos.copyTo(mWorldPos);
         mNormalVector = cv::Mat::zeros(3, 1, CV_32F);
 
@@ -383,10 +383,12 @@ namespace ORB_SLAM2 {
 
     // TODO: new functions here
     std::map<Frame*, size_t > MapPoint::GetFoundersOfFrame() {
+        unique_lock<mutex> lock(mMutexFeatures);
         return mFounders;
     }
 
     void MapPoint::AddFounderOfFrame(Frame *pF, size_t idx) {
+        unique_lock<mutex> lock(mMutexFeatures);
         if (mFounders.count(pF) > 0)
             return;
 
@@ -401,6 +403,7 @@ namespace ORB_SLAM2 {
     }
 
     void MapPoint::EraseFounderOfFrame(Frame *pF) {
+        unique_lock<mutex> lock(mMutexFeatures);
         if (mFounders.count(pF) < 0) return;
 
         mFounders.erase(pF);
@@ -408,18 +411,22 @@ namespace ORB_SLAM2 {
     }
 
     int MapPoint::GetFoundByFrame() {
+        unique_lock<mutex> lock(mMutexFeatures);
         return nFoundByFrame;
     }
 
     void MapPoint::IncreaseFoundByFrame(const int &n) {
+        unique_lock<mutex> lock(mMutexFeatures);
         nFoundByFrame += n;
     }
 
     void MapPoint::SetType(const mPointType &type) {
+        unique_lock<mutex> lock(mMutexFeatures);
         mType = type;
     }
 
     void MapPoint::Upgrade() {
+        unique_lock<mutex> lock(mMutexFeatures);
         mType = GLOBAL;
 
     }
