@@ -22,6 +22,7 @@
 #include "ORBmatcher.h"
 
 #include<mutex>
+#include <glog/logging.h>
 
 namespace ORB_SLAM2 {
 
@@ -46,7 +47,7 @@ namespace ORB_SLAM2 {
             mnFirstKFid(-1), mnFirstFrame(pFrame->mnId), nObs(0), mnTrackReferenceForFrame(0), mnLastFrameSeen(0),
             mnBALocalForKF(0), mnFuseCandidateForKF(0), mnLoopPointForKF(0), mnCorrectedByKF(0),
             mnCorrectedReference(0), mnBAGlobalForKF(0), mpRefKF(static_cast<KeyFrame *>(NULL)), mnVisible(1),
-            mnFound(1), mbBad(false), mpReplaced(NULL), mpMap(pMap), mType(TEMPORAL), nFoundByFrame(2), mfFoundRatio(0.0f), mnMaxFrameId(pFrame->mnId) {
+            mnFound(1), mbBad(false), mpReplaced(NULL), mpMap(pMap), mType(TEMPORAL), nFoundByFrame(0), mfFoundRatio(0.0f), mnMaxFrameId(pFrame->mnId) {
         Pos.copyTo(mWorldPos);
         cv::Mat Ow = pFrame->GetCameraCenter();
         mNormalVector = mWorldPos - Ow;
@@ -399,7 +400,25 @@ namespace ORB_SLAM2 {
 
         nFoundByFrame += 2;
 
-        mfFoundRatio = nFoundByFrame / (float)(mnMaxFrameId - mnFirstFrame);
+        mfFoundRatio = (float)nFoundByFrame / (2.0 * (int)(mnMaxFrameId - mnFirstFrame + 2));
+
+        LOG(INFO) << "Id: " << mnId << " ,Found: " << nFoundByFrame << ", first: " << mnFirstFrame << " ,max:" << mnMaxFrameId << " ,ratio: " << mfFoundRatio;
+    }
+
+    void MapPoint::AddFounderOfFrameIdx(long FrameId, size_t idx) {
+        // unique_lock<mutex> lock(mMutexFeatures);
+        if (mnFoundersIdx.count(FrameId) > 0)
+            return;
+        if (FrameId > mnMaxFrameId)
+            mnMaxFrameId = FrameId;
+
+        // mnFoundersIdx[FrameId] = idx;
+
+        nFoundByFrame += 2;
+
+        mfFoundRatio = (float)nFoundByFrame / (2.0 * (int)(mnMaxFrameId - mnFirstFrame + 2));
+
+//        LOG(INFO) << "Id: " << mnId << " ,Found: " << nFoundByFrame << ", first: " << mnFirstFrame << " ,max:" << mnMaxFrameId << " ,ratio: " << mfFoundRatio;
     }
 
     void MapPoint::EraseFounderOfFrame(Frame *pF) {

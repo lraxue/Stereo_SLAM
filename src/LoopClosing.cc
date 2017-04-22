@@ -30,6 +30,7 @@
 
 #include<mutex>
 #include<thread>
+#include <zconf.h>
 
 
 namespace ORB_SLAM2

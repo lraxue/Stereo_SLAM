@@ -24,6 +24,8 @@
 #include "Optimizer.h"
 
 #include<mutex>
+#include <zconf.h>
+#include <glog/logging.h>
 
 namespace ORB_SLAM2 {
 
@@ -437,6 +439,8 @@ namespace ORB_SLAM2 {
         // Search matches by projection from current KF in target KFs
         ORBmatcher matcher;
         vector<MapPoint *> vpMapPointMatches = mpCurrentKeyFrame->GetMapPointMatches();
+        LOG(INFO) << "In local mapping: " << &mpCurrentKeyFrame << " size of mappoints: " << vpMapPointMatches.size();
+
         for (vector<KeyFrame *>::iterator vit = vpTargetKFs.begin(), vend = vpTargetKFs.end(); vit != vend; vit++) {
             KeyFrame *pKFi = *vit;
 
@@ -684,14 +688,12 @@ namespace ORB_SLAM2 {
     void LocalMapping::ProcessKeyFrame() {
         mbFinished = false;
 
-        while(1)
-        {
+        while (1) {
             // Tracking will see that Local Mapping is busy
             SetAcceptKeyFrames(false);
 
             // Check if there are keyframses in the queue
-            if (CheckNewKeyFrames())
-            {
+            if (CheckNewKeyFrames()) {
                 // Bow conversion and insertion in Map
                 ProcessNewKeyFrame();
 
@@ -701,31 +703,26 @@ namespace ORB_SLAM2 {
                 // Triangulate new MapPoints
                 // CreateNewMapPoints();
 
-                if (!CheckNewKeyFrames())
-                {
+                if (!CheckNewKeyFrames()) {
                     // Find more matches in neighbor keyframes and fuse point duplicates
                     SearchInNeighbors();
                 }
 
                 mbAbortBA = false;
 
-                if (!CheckNewKeyFrames() && !stopRequested())
-                {
+                if (!CheckNewKeyFrames() && !stopRequested()) {
                     // Local BA
                     if (mpMap->KeyFramesInMap() > 2)
                         Optimizer::LocalBundleAdjustment(mpCurrentKeyFrame, &mbAbortBA, mpMap);
                 }
 
                 mpLoopCloser->InsertKeyFrame(mpCurrentKeyFrame);
-            }
-            else if (Stop())
-            {
+            } else if (Stop()) {
                 // Safe area to stop
-                while(isStopped() && !CheckFinish())
-                {
+                while (isStopped() && !CheckFinish()) {
                     usleep(3000);
                 }
-                if(CheckFinish())
+                if (CheckFinish())
                     break;
             }
 
@@ -734,7 +731,7 @@ namespace ORB_SLAM2 {
             // Tracking will see that Local Mapping is busy
             SetAcceptKeyFrames(true);
 
-            if(CheckFinish())
+            if (CheckFinish())
                 break;
 
             usleep(3000);
@@ -743,5 +740,30 @@ namespace ORB_SLAM2 {
         SetFinish();
     }
 
+    void LocalMapping::ProcessKeyFrameInTrack() {
+        mbFinished = false;
+
+        // Bow conversion and insertion in Map
+        ProcessNewKeyFrame();
+
+        // Check recent MapPoints
+        // MapPointCulling();
+
+        // Triangulate new MapPoints
+        // CreateNewMapPoints();
+
+        // if (!CheckNewKeyFrames()) {
+        // Find more matches in neighbor keyframes and fuse point duplicates
+        SearchInNeighbors();
+        // }
+
+        LOG(INFO) << "KeyFrames is Map: " << mpMap->KeyFramesInMap();
+        if (mpMap->KeyFramesInMap() > 2)
+            Optimizer::LocalBundleAdjustment(mpCurrentKeyFrame, &mbAbortBA, mpMap);
+
+        mpLoopCloser->InsertKeyFrame(mpCurrentKeyFrame);
+
+        SetFinish();
+    }
 
 } //namespace ORB_SLAM

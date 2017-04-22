@@ -29,7 +29,9 @@
 
 #include<stdint-gcc.h>
 #include <glog/logging.h>
+#include <cvaux.h>
 
+using namespace cv;
 using namespace std;
 
 namespace ORB_SLAM2 {
@@ -1373,9 +1375,10 @@ namespace ORB_SLAM2 {
 
         for (int i = 0; i < LastFrame.N; i++) {
             MapPoint *pMP = LastFrame.mvpMapPoints[i];
-            if (vLastMatches[i] < 0) continue;       // Circle match: ll-lr
+            if (vLastMatches[i] < 0) continue;          // Circle match: ll-lr
 
             if (pMP) {
+
                 if (!LastFrame.mvbOutlier[i]) {
                     // Project
                     cv::Mat x3Dw = pMP->GetWorldPos();
@@ -1658,4 +1661,166 @@ namespace ORB_SLAM2 {
         return dist;
     }
 
+    int ORBmatcher::LineMatch(const Frame &lastFrame, const Frame &currentFrame, const float &ratio,
+                              vector<DMatch> &good_matches) {
+
+        const std::vector<cv::KeyPoint>& mvKeys1 = lastFrame.mvKeys;
+        const std::vector<cv::KeyPoint>& mvKeys2 = currentFrame.mvKeys;
+
+        const cv::Mat &mDesc1 = lastFrame.mDescriptors;
+        const cv::Mat &mDesc2 = currentFrame.mDescriptors;
+
+        BruteForceMatcher<HammingLUT> matcher;
+        vector<DMatch> matches;
+        matcher.match(mDesc1, mDesc2, matches);
+
+        double max_dist = 0, min_dist = 1e10;
+        for (int i = 0; i < mDesc1.rows; ++i) {
+            double dist = matches[i].distance;
+            if (dist < min_dist) min_dist = dist;
+            if (dist > max_dist) max_dist = dist;
+        }
+
+        for (int i = 0; i < mDesc1.rows; ++i) {
+            int idx1 = matches[i].queryIdx;
+            int idx2 = matches[i].trainIdx;
+            int dx = abs(mvKeys1[idx1].pt.x - mvKeys2[idx2].pt.x);
+            int dy = abs(mvKeys1[idx1].pt.y - mvKeys2[idx2].pt.y);
+//
+            if (dx > 100 || dy > 100) continue;
+            if (matches[i].distance < ratio * max_dist)
+                good_matches.push_back(matches[i]);
+        }
+
+        return good_matches.size();
+    }
+
+    int ORBmatcher::CircleMatch(const Frame &lastFrame, const Frame &currentFrame, const float &ratio,
+                                vector<DMatch> &good_matches) {
+                const cv::Mat &mDesc1 = lastFrame.mDescriptors;
+        const cv::Mat &mDesc2 = currentFrame.mDescriptors;
+        const std::vector<cv::KeyPoint>& mvKeys1 = lastFrame.mvKeys;
+        const std::vector<cv::KeyPoint>& mvKeys2 = currentFrame.mvKeys;
+        BruteForceMatcher<HammingLUT> matcher;
+        vector<DMatch> matches;
+        matcher.match(mDesc1, mDesc2, matches);
+
+        double max_dist = 0, min_dist = 1e10;
+        for (int i = 0; i < mDesc1.rows; ++i) {
+            double dist = matches[i].distance;
+            if (dist < min_dist) min_dist = dist;
+            if (dist > max_dist) max_dist = dist;
+        }
+
+        for (int i = 0; i < mDesc1.rows; ++i) {
+            int idx1 = matches[i].queryIdx;
+            int idx2 = matches[i].trainIdx;
+            int dx = abs(mvKeys1[idx1].pt.x - mvKeys2[idx2].pt.x);
+            int dy = abs(mvKeys1[idx1].pt.y - mvKeys2[idx2].pt.y);
+//
+            if (dx > 100 || dy > 100) continue;
+
+            if (lastFrame.mnMatches[idx1] < 0) continue;
+            if (currentFrame.mnMatches[idx2] < 0) continue;
+
+            if (matches[i].distance < ratio * max_dist)
+                good_matches.push_back(matches[i]);
+        }
+
+        return good_matches.size();
+    }
+
+    void ORBmatcher::DrawMatchesVertical(const cv::Mat &m1, const std::vector<cv::KeyPoint> &points1, const cv::Mat &m2,
+                                         const std::vector<cv::KeyPoint> &points2,
+                                         const std::vector<cv::DMatch> &matches, cv::Mat &out) {
+        cv::Mat m = cv::Mat(m1.rows * 2, m1.cols, m1.type());
+        m2.copyTo(m.rowRange(0, m1.rows).colRange(0, m1.cols));
+        m1.copyTo(m.rowRange(m1.rows, m.rows).colRange(0, m1.cols));
+
+        for (int i = 0; i < matches.size(); ++i)
+        {
+            int idx1 = matches[i].queryIdx;
+            int idx2 = matches[i].trainIdx;
+
+            cv::Point p1 = points1[idx1].pt;
+            cv::Point p2 = points2[idx2].pt;
+
+            p1.y += m1.rows;
+
+            circle(m, p1, 5, cv::Scalar(0, 0, 255));
+            circle(m, p2, 5, cv::Scalar(0, 0, 255));
+            line(m ,p1, p2, cv::Scalar(0, 255, 0), 1);
+        }
+
+        out = m.clone();
+    }
+
+    void ORBmatcher::DrawMatchesVertical(const cv::Mat &m1, const std::vector<cv::KeyPoint> &points1, const cv::Mat &m2,
+                                         const std::vector<cv::KeyPoint> &points2,
+                                         const std::vector<int> &matches, cv::Mat &out) {
+        cv::Mat m = cv::Mat(m1.rows, m1.cols * 2, m1.type());
+        m2.copyTo(m.rowRange(0, m1.rows).colRange(0, m1.cols));
+        m1.copyTo(m.rowRange(0, m.rows).colRange(m1.cols, m.cols));
+
+        for (int i = 0; i < points1.size(); ++i)
+        {
+            if (matches[i] < 0) continue;
+            cv::Point p1 = points1[i].pt;
+            cv::Point p2 = points2[matches[i]].pt;
+
+            p2.x += m1.cols;
+
+            circle(m, p1, 5, cv::Scalar(0, 0, 255));
+            circle(m, p2, 5, cv::Scalar(0, 0, 255));
+            line(m ,p1, p2, cv::Scalar(0, 255, 0), 1);
+        }
+
+        out = m.clone();
+    }
+
+    void ORBmatcher::DrawCircleMatches(const cv::Mat &m1, const std::vector<cv::KeyPoint> &points1,
+                                       const cv::Mat &m2, const std::vector<cv::KeyPoint> &points2,
+                                       const cv::Mat &m3, const std::vector<cv::KeyPoint> &points3,
+                                       const cv::Mat &m4, const std::vector<cv::KeyPoint> &points4,
+                                       const std::vector<int> &matches12,
+                                       const std::vector<int> &matches34,
+                                       const std::vector<cv::DMatch> &matches13, cv::Mat &out) {
+        cv::Mat m = cv::Mat(m1.rows * 2, m1.cols * 2, m1.type());
+        m3.copyTo(m.rowRange(0, m1.rows).colRange(0, m1.cols));
+        m4.copyTo(m.rowRange(0, m1.rows).colRange(m1.cols, m.cols));
+        m1.copyTo(m.rowRange(m1.rows, m.rows).colRange(0, m1.cols));
+        m2.copyTo(m.rowRange(m2.rows, m.rows).colRange(m1.cols, m.cols));
+
+        for (int i = 0; i < matches13.size(); ++i)
+        {
+            int idx1 = matches13[i].queryIdx;
+            int idx3 = matches13[i].trainIdx;
+            int idx2 = matches12[idx1];
+            int idx4 = matches34[idx3];
+
+            cv::Point p1 = points1[idx1].pt;
+            cv::Point p2 = points2[idx2].pt;
+            cv::Point p3 = points3[idx3].pt;
+            cv::Point p4 = points4[idx4].pt;
+
+            p4.x += m1.cols;
+            p1.y += m1.rows;
+            p2.x += m1.cols;
+            p2.y += m1.rows;
+
+            circle(m, p1, 5, cv::Scalar(0, 0, 255));
+            circle(m, p2, 5, cv::Scalar(0, 0, 255));
+            circle(m, p3, 5, cv::Scalar(0, 0, 255));
+            circle(m, p4, 5, cv::Scalar(0, 0, 255));
+
+            line(m ,p1, p2, cv::Scalar(0, 255, 0), 1);
+            line(m ,p1, p3, cv::Scalar(0, 255, 0), 1);
+            line(m ,p3, p4, cv::Scalar(0, 255, 0), 1);
+            line(m ,p2, p4, cv::Scalar(0, 255, 0), 1);
+        }
+
+        out = m.clone();
+
+
+    }
 } //namespace ORB_SLAM

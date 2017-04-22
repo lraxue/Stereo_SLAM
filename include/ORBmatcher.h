@@ -86,6 +86,22 @@ public:
     int Fuse(KeyFrame* pKF, cv::Mat Scw, const std::vector<MapPoint*> &vpPoints, float th, vector<MapPoint *> &vpReplacePoint);
 
 public:
+    int LineMatch(const Frame &lastFrame, const Frame &currentFrame, const float &ratio, std::vector<cv::DMatch> &good_matches);
+
+    int CircleMatch(const Frame &lastFrame, const Frame &currentFrame, const float &ratio, std::vector<cv::DMatch> &good_matches);
+
+    void DrawMatchesVertical(const cv::Mat& m1, const std::vector<cv::KeyPoint>& points1, const cv::Mat& m2,
+                             const std::vector<cv::KeyPoint>& points2, const std::vector<cv::DMatch>& matches, cv::Mat& out);
+
+    void DrawMatchesVertical(const cv::Mat& m1, const std::vector<cv::KeyPoint>& points1, const cv::Mat& m2,
+                             const std::vector<cv::KeyPoint>& points2, const std::vector<int>& matches, cv::Mat& out);
+
+    void DrawCircleMatches(const cv::Mat& m1, const std::vector<cv::KeyPoint>& points1, const cv::Mat& m2, const std::vector<cv::KeyPoint>& points2,
+    const cv::Mat& m3, const std::vector<cv::KeyPoint>& points3, const cv::Mat& m4, const std::vector<cv::KeyPoint>& points4,
+                           const std::vector<int>& matches12, const std::vector<int>& matches34,
+                           const std::vector<cv::DMatch>& matches13, cv::Mat &out);
+
+public:
 
     static const int TH_LOW;
     static const int TH_HIGH;

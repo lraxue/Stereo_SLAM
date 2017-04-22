@@ -65,6 +65,8 @@ protected:
 
     Map* mpMap;
 
+    unsigned long mnFrameId;
+
     std::mutex mMutex;
 };
 

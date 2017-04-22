@@ -105,6 +105,8 @@ namespace ORB_SLAM2 {
 
         void AddFounderOfFrame(Frame* pF, size_t idx);
 
+        void AddFounderOfFrameIdx(long FrameId, size_t idx);
+
         void EraseFounderOfFrame(Frame* pF);
 
         int GetFoundByFrame();
@@ -162,10 +164,12 @@ namespace ORB_SLAM2 {
         // TODO: These need to be processed in another way
         std::map<Frame*, size_t> mFounders;
 
+        std::map<long, size_t > mnFoundersIdx;
+
         int nFoundByFrame;
 
         float mfFoundRatio;
-        int mnMaxFrameId;
+        long mnMaxFrameId;
 
         // Position in absolute coordinates
         cv::Mat mWorldPos;

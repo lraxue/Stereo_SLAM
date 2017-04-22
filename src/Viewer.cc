@@ -22,6 +22,7 @@
 #include <pangolin/pangolin.h>
 
 #include <mutex>
+#include <zconf.h>
 
 namespace ORB_SLAM2
 {
@@ -65,13 +66,13 @@ void Viewer::Run()
     glEnable (GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    pangolin::CreatePanel("menu").SetBounds(0.0,1.0,0.0,pangolin::Attach::Pix(175));
-    pangolin::Var<bool> menuFollowCamera("menu.Follow Camera",true,true);
-    pangolin::Var<bool> menuShowPoints("menu.Show Points",true,true);
-    pangolin::Var<bool> menuShowKeyFrames("menu.Show KeyFrames",true,true);
-    pangolin::Var<bool> menuShowGraph("menu.Show Graph",true,true);
-    pangolin::Var<bool> menuLocalizationMode("menu.Localization Mode",false,true);
-    pangolin::Var<bool> menuReset("menu.Reset",false,false);
+//    pangolin::CreatePanel("menu").SetBounds(0.0,1.0,0.0,pangolin::Attach::Pix(175));
+//    pangolin::Var<bool> menuFollowCamera("menu.Follow Camera",true,true);
+//    pangolin::Var<bool> menuShowPoints("menu.Show Points",true,true);
+//    pangolin::Var<bool> menuShowKeyFrames("menu.Show KeyFrames",true,true);
+//    pangolin::Var<bool> menuShowGraph("menu.Show Graph",true,true);
+//    pangolin::Var<bool> menuLocalizationMode("menu.Localization Mode",false,true);
+//    pangolin::Var<bool> menuReset("menu.Reset",false,false);
 
     // Define Camera Render Object (for view / scene browsing)
     pangolin::OpenGlRenderState s_cam(
@@ -97,39 +98,40 @@ void Viewer::Run()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         mpMapDrawer->GetCurrentOpenGLCameraMatrix(Twc);
+        s_cam.Follow(Twc);
 
-        if(menuFollowCamera && bFollow)
-        {
-            s_cam.Follow(Twc);
-        }
-        else if(menuFollowCamera && !bFollow)
-        {
-            s_cam.SetModelViewMatrix(pangolin::ModelViewLookAt(mViewpointX,mViewpointY,mViewpointZ, 0,0,0,0.0,-1.0, 0.0));
-            s_cam.Follow(Twc);
-            bFollow = true;
-        }
-        else if(!menuFollowCamera && bFollow)
-        {
-            bFollow = false;
-        }
-
-        if(menuLocalizationMode && !bLocalizationMode)
-        {
-            mpSystem->ActivateLocalizationMode();
-            bLocalizationMode = true;
-        }
-        else if(!menuLocalizationMode && bLocalizationMode)
-        {
-            mpSystem->DeactivateLocalizationMode();
-            bLocalizationMode = false;
-        }
+//        if(menuFollowCamera && bFollow)
+//        {
+//            s_cam.Follow(Twc);
+//        }
+//        else if(menuFollowCamera && !bFollow)
+//        {
+//            s_cam.SetModelViewMatrix(pangolin::ModelViewLookAt(mViewpointX,mViewpointY,mViewpointZ, 0,0,0,0.0,-1.0, 0.0));
+//            s_cam.Follow(Twc);
+//            bFollow = true;
+//        }
+//        else if(!menuFollowCamera && bFollow)
+//        {
+//            bFollow = false;
+//        }
+//
+//        if(menuLocalizationMode && !bLocalizationMode)
+//        {
+//            mpSystem->ActivateLocalizationMode();
+//            bLocalizationMode = true;
+//        }
+//        else if(!menuLocalizationMode && bLocalizationMode)
+//        {
+//            mpSystem->DeactivateLocalizationMode();
+//            bLocalizationMode = false;
+//        }
 
         d_cam.Activate(s_cam);
         glClearColor(1.0f,1.0f,1.0f,1.0f);
         mpMapDrawer->DrawCurrentCamera(Twc);
-        if(menuShowKeyFrames || menuShowGraph)
-            mpMapDrawer->DrawKeyFrames(menuShowKeyFrames,menuShowGraph);
-        if(menuShowPoints)
+        // if(menuShowKeyFrames || menuShowGraph)
+            mpMapDrawer->DrawKeyFrames(true, true); //(menuShowKeyFrames,menuShowGraph);
+        // if(menuShowPoints)
             mpMapDrawer->DrawMapPoints();
 
         pangolin::FinishFrame();
@@ -138,20 +140,20 @@ void Viewer::Run()
         cv::imshow("Stereo_SLAM: Current Frame",im);
         cv::waitKey(mT);
 
-        if(menuReset)
-        {
-            menuShowGraph = true;
-            menuShowKeyFrames = true;
-            menuShowPoints = true;
-            menuLocalizationMode = false;
-            if(bLocalizationMode)
-                mpSystem->DeactivateLocalizationMode();
-            bLocalizationMode = false;
-            bFollow = true;
-            menuFollowCamera = true;
-            mpSystem->Reset();
-            menuReset = false;
-        }
+//        if(menuReset)
+//        {
+//            menuShowGraph = true;
+//            menuShowKeyFrames = true;
+//            menuShowPoints = true;
+//            menuLocalizationMode = false;
+//            if(bLocalizationMode)
+//                mpSystem->DeactivateLocalizationMode();
+//            bLocalizationMode = false;
+//            bFollow = true;
+//            menuFollowCamera = true;
+//            mpSystem->Reset();
+//            menuReset = false;
+//        }
 
         if(Stop())
         {

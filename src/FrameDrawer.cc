@@ -105,19 +105,25 @@ cv::Mat FrameDrawer::DrawFrame()
                 // This is a match to a MapPoint in the map
                 if(vbMap[i])
                 {
-                    cv::rectangle(im,pt1,pt2,cv::Scalar(0,255,0)); // green
-                    cv::circle(im,vCurrentKeys[i].pt,2,cv::Scalar(0,255,0),-1);
+//                    cv::rectangle(im,pt1,pt2,cv::Scalar(0,255,0)); // green
+//                    cv::circle(im,vCurrentKeys[i].pt,2,cv::Scalar(0,255,0),-1);
+
+                    cv::circle(im, vCurrentKeys[i].pt, 5, cv::Scalar(0, 0, 255), 2);
                     mnTracked++;
                 }
                 else // This is match to a "visual odometry" MapPoint created in the last frame // blue
                 {
-                    cv::rectangle(im,pt1,pt2,cv::Scalar(255,0,0));
-                    cv::circle(im,vCurrentKeys[i].pt,2,cv::Scalar(255,0,0),-1);
+//                    cv::rectangle(im,pt1,pt2,cv::Scalar(255,0,0));
+//                    cv::circle(im,vCurrentKeys[i].pt,2,cv::Scalar(255,0,0),-1);
+
+                    cv::circle(im, vCurrentKeys[i].pt, 5, cv::Scalar(255, 0, 0), 2);
                     mnTrackedVO++;
                 }
             }
         }
     }
+
+    // cv::imwrite("featuretracking/" + to_string(mnFrameId) + ".png", im);
 
     cv::Mat imWithInfo;
     DrawTextInfo(im,state, imWithInfo);
@@ -141,9 +147,9 @@ void FrameDrawer::DrawTextInfo(cv::Mat &im, int nState, cv::Mat &imText)
             s << "LOCALIZATION | ";
         int nKFs = mpMap->KeyFramesInMap();
         int nMPs = mpMap->MapPointsInMap();
-        s << "KFs: " << nKFs << ", MPs: " << nMPs << ", Matches: " << mnTracked;
+        s << "Fs: " << nKFs << ", Global MPs: " << nMPs << ", Matches: " << mnTracked;
         if(mnTrackedVO>0)
-            s << ", + VO matches: " << mnTrackedVO;
+            s << ", + Temporal MPs: " << mnTrackedVO;
     }
     else if(nState==Tracking::LOST)
     {
@@ -167,12 +173,13 @@ void FrameDrawer::DrawTextInfo(cv::Mat &im, int nState, cv::Mat &imText)
 void FrameDrawer::Update(Tracking *pTracker)
 {
     unique_lock<mutex> lock(mMutex);
-    pTracker->mImGray.copyTo(mIm);
+    pTracker->mImg.copyTo(mIm);
     mvCurrentKeys=pTracker->mCurrentFrame.mvKeys;
     N = mvCurrentKeys.size();
     mvbVO = vector<bool>(N,false);
     mvbMap = vector<bool>(N,false);
     mbOnlyTracking = pTracker->mbOnlyTracking;
+    mnFrameId = pTracker->mCurrentFrame.mnId;
 
 
     if(pTracker->mLastProcessedState==Tracking::NOT_INITIALIZED)
@@ -193,9 +200,9 @@ void FrameDrawer::Update(Tracking *pTracker)
 //                        mvbMap[i]=true;
 //                    else
 //                        mvbVO[i]=true;
-                    if (pMP->mType == MapPoint::GLOBAL)
+                    if (pMP->mType == MapPoint::GLOBAL && pMP->mnFirstFrame >= 2)
                         mvbMap[i] = true;
-                    else if (pMP->mType == MapPoint::TEMPORAL)
+                    // else if (pMP->mType == MapPoint::TEMPORAL)
                         mvbVO[i] = true;
                 }
             }

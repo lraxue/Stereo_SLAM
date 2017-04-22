@@ -93,6 +93,10 @@ public:
     // Current Frame
     Frame mCurrentFrame;
     cv::Mat mImGray;
+    cv::Mat mLastImg;
+    cv::Mat mImg;
+    cv::Mat mLastImgR;
+    cv::Mat mImgR;
 
     // Initialization Variables (Monocular)
     std::vector<int> mvIniLastMatches;
@@ -119,10 +123,14 @@ protected:
     void MapInitialization();
     bool IsNeedNewKeyFrameBased();
 
+    void TestCircleMatch();
+
 protected:
 
     // Main tracking function. It is independent of the input sensor.
     void Track();
+
+    void OriginalTrack();
 
     // Map initialization for stereo and RGB-D
     void StereoInitialization();

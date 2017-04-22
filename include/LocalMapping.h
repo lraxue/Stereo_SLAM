@@ -76,6 +76,8 @@ public:
     // TODO: new functions here!
     void ProcessKeyFrame();
 
+    void ProcessKeyFrameInTrack();
+
 protected:
 
     bool CheckNewKeyFrames();
