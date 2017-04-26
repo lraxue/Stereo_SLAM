@@ -758,8 +758,8 @@ namespace ORB_SLAM2 {
         // }
 
         LOG(INFO) << "KeyFrames is Map: " << mpMap->KeyFramesInMap();
-        if (mpMap->KeyFramesInMap() > 2)
-            Optimizer::LocalBundleAdjustment(mpCurrentKeyFrame, &mbAbortBA, mpMap);
+//        if (mpMap->KeyFramesInMap() > 2)
+//            Optimizer::LocalBundleAdjustment(mpCurrentKeyFrame, &mbAbortBA, mpMap);
 
         mpLoopCloser->InsertKeyFrame(mpCurrentKeyFrame);
 

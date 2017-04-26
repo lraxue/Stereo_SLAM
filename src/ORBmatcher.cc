@@ -1759,12 +1759,14 @@ namespace ORB_SLAM2 {
                                          const std::vector<cv::KeyPoint> &points2,
                                          const std::vector<int> &matches, cv::Mat &out) {
         cv::Mat m = cv::Mat(m1.rows, m1.cols * 2, m1.type());
-        m2.copyTo(m.rowRange(0, m1.rows).colRange(0, m1.cols));
-        m1.copyTo(m.rowRange(0, m.rows).colRange(m1.cols, m.cols));
+        m1.copyTo(m.rowRange(0, m1.rows).colRange(0, m1.cols));
+        m2.copyTo(m.rowRange(0, m.rows).colRange(m1.cols, m.cols));
 
         for (int i = 0; i < points1.size(); ++i)
         {
             if (matches[i] < 0) continue;
+            if (i % 20) continue;
+
             cv::Point p1 = points1[i].pt;
             cv::Point p2 = points2[matches[i]].pt;
 
@@ -1772,7 +1774,7 @@ namespace ORB_SLAM2 {
 
             circle(m, p1, 5, cv::Scalar(0, 0, 255));
             circle(m, p2, 5, cv::Scalar(0, 0, 255));
-            line(m ,p1, p2, cv::Scalar(0, 255, 0), 1);
+            line(m ,p1, p2, cv::Scalar(255, 0, 0), 2);
         }
 
         out = m.clone();
@@ -1802,6 +1804,7 @@ namespace ORB_SLAM2 {
             cv::Point p2 = points2[idx2].pt;
             cv::Point p3 = points3[idx3].pt;
             cv::Point p4 = points4[idx4].pt;
+            if (idx3 % 20) continue;
 
             p4.x += m1.cols;
             p1.y += m1.rows;
@@ -1813,10 +1816,10 @@ namespace ORB_SLAM2 {
             circle(m, p3, 5, cv::Scalar(0, 0, 255));
             circle(m, p4, 5, cv::Scalar(0, 0, 255));
 
-            line(m ,p1, p2, cv::Scalar(0, 255, 0), 1);
-            line(m ,p1, p3, cv::Scalar(0, 255, 0), 1);
-            line(m ,p3, p4, cv::Scalar(0, 255, 0), 1);
-            line(m ,p2, p4, cv::Scalar(0, 255, 0), 1);
+            line(m ,p1, p2, cv::Scalar(255, 0, 0), 2);
+            line(m ,p1, p3, cv::Scalar(0, 255, 0), 2);
+            line(m ,p3, p4, cv::Scalar(255, 0, 0), 2);
+            line(m ,p2, p4, cv::Scalar(0, 255, 0), 2);
         }
 
         out = m.clone();

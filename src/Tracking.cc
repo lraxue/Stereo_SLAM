@@ -191,7 +191,7 @@ namespace ORB_SLAM2 {
 //
 //        cv::imshow("points", out);
 //        cv::waitKey(0);
-
+//
 //        TestCircleMatch();
 //
 //        mLastFrame = Frame(mCurrentFrame);
@@ -335,7 +335,7 @@ namespace ORB_SLAM2 {
             // Create MapPoints and asscoiate to KeyFrame
             for (int i = 0; i < mCurrentFrame.N; i++) {
                 float z = mCurrentFrame.mvDepth[i];
-                if (z > 0) {
+                if (z > 0 && z < mThDepth * 3) {
                     cv::Mat x3D = mCurrentFrame.UnprojectStereo(i);
                     MapPoint *pNewMP = new MapPoint(x3D, pKFini, mpMap);
                     pNewMP->AddObservation(pKFini, i);
@@ -488,7 +488,7 @@ namespace ORB_SLAM2 {
     }
 
     bool Tracking::TrackWithMotionModel() {
-        ORBmatcher matcher(0.9, true);
+        ORBmatcher matcher(0.8, true);
 
         // Update last frame pose according to its reference keyframe
         // Create "visual odometry" points if in Localization Mode
@@ -1166,7 +1166,7 @@ namespace ORB_SLAM2 {
             else if (mLastFrame.mvbOutlier[i])
                 bCreateNew = true;
 
-            if (bCreateNew) {
+            if (bCreateNew && mLastFrame.mvDepth[i] < mThDepth * 3) {
                 cv::Mat X3D = mLastFrame.UnprojectStereo(i);
                 MapPoint *pNewMP = new MapPoint(X3D, mpMap, &mLastFrame, i);
 //                pNewMP->UpdateNormalAndDepth();
@@ -1212,7 +1212,7 @@ namespace ORB_SLAM2 {
             if (mCurrentFrame.mnMatches[i] < 0 || mCurrentFrame.mvbOutlier[i]) continue;
             MapPoint *pMP = mCurrentFrame.mvpMapPoints[i];
             if (pMP && pMP->mType == MapPoint::TEMPORAL) {
-                 if (pMP->GetFrameFoundRatio() > foundRatio) {   // Found by enough Frame
+                  if (pMP->GetFrameFoundRatio() > foundRatio) {   // Found by enough Frame
                     pMP->SetReferenceKF(pKF);                   // Set reference KF
                     pMP->AddObservation(pKF, i);
                     pMP->SetType(MapPoint::GLOBAL);           // Upgrade to Global point
@@ -1578,9 +1578,9 @@ namespace ORB_SLAM2 {
         imshow("stereo_match", stereo_match);
         cv::waitKey(33);
 
-        imwrite("circlematch/linematch/" + to_string(mCurrentFrame.mnId) + "line_match.png", line_match);
-        imwrite("circlematch/circlematch/" + to_string(mCurrentFrame.mnId) + "circle_match.png", circle_match);
-        imwrite("circlematch/stereomatch/" + to_string(mCurrentFrame.mnId) + "stereo_match.png", stereo_match);
+        imwrite("circlematch/linematch/" + to_string(mCurrentFrame.mnId) + "line_match-0.png", line_match);
+        imwrite("circlematch/circlematch/" + to_string(mCurrentFrame.mnId) + "circle_match-0.png", circle_match);
+        imwrite("circlematch/stereomatch/" + to_string(mCurrentFrame.mnId) + "stereo_match-0.png", stereo_match);
     }
 
 
