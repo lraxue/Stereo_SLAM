@@ -41,7 +41,7 @@
 
 using namespace std;
 
-namespace ORB_SLAM2 {
+namespace Stereo_SLAM {
 
     Tracking::Tracking(System *pSys, ORBVocabulary *pVoc, FrameDrawer *pFrameDrawer, MapDrawer *pMapDrawer, Map *pMap,
                        KeyFrameDatabase *pKFDB, const string &strSettingPath, const int sensor) :
@@ -539,8 +539,7 @@ namespace ORB_SLAM2 {
             }
         }
 
-        LOG(INFO) << "Points by circle match: " << nSearched << " , after position: " << nmatches;
-
+        LOG(INFO) << "Points by circle match: " << nSearched << " , after optimization: " << nmatches;
         return nmatchesMap >= 10;
     }
 

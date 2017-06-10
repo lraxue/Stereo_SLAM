@@ -32,7 +32,7 @@
 
 #include <opencv2/opencv.hpp>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 #define FRAME_GRID_ROWS 48
 #define FRAME_GRID_COLS 64

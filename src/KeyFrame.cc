@@ -23,7 +23,7 @@
 #include "ORBmatcher.h"
 #include<mutex>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 long unsigned int KeyFrame::nNextId=0;
@@ -148,7 +148,7 @@ void KeyFrame::UpdateBestCovisibles()
        vPairs.push_back(make_pair(mit->second,mit->first));
 
     sort(vPairs.begin(),vPairs.end());
-    list<KeyFrame*> lKFs;
+    std::list<KeyFrame*> lKFs;
     list<int> lWs;
     for(size_t i=0, iend=vPairs.size(); i<iend;i++)
     {
@@ -356,7 +356,7 @@ void KeyFrame::UpdateConnections()
     }
 
     sort(vPairs.begin(),vPairs.end());
-    list<KeyFrame*> lKFs;
+    std::list<KeyFrame*> lKFs;
     list<int> lWs;
     for(size_t i=0; i<vPairs.size();i++)
     {

@@ -34,7 +34,7 @@
 using namespace cv;
 using namespace std;
 
-namespace ORB_SLAM2 {
+namespace Stereo_SLAM {
 
     const int ORBmatcher::TH_HIGH = 100;
     const int ORBmatcher::TH_LOW = 50;

@@ -12,11 +12,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="222d14e4-48c2-496d-88c2-3eac2cfe2877" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Converter.h" afterPath="$PROJECT_DIR$/include/Converter.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Frame.h" afterPath="$PROJECT_DIR$/include/Frame.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/FrameDrawer.h" afterPath="$PROJECT_DIR$/include/FrameDrawer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Initializer.h" afterPath="$PROJECT_DIR$/include/Initializer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/KeyFrame.h" afterPath="$PROJECT_DIR$/include/KeyFrame.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/KeyFrameDatabase.h" afterPath="$PROJECT_DIR$/include/KeyFrameDatabase.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/LocalMapping.h" afterPath="$PROJECT_DIR$/include/LocalMapping.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/LoopClosing.h" afterPath="$PROJECT_DIR$/include/LoopClosing.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Map.h" afterPath="$PROJECT_DIR$/include/Map.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/MapDrawer.h" afterPath="$PROJECT_DIR$/include/MapDrawer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/MapPoint.h" afterPath="$PROJECT_DIR$/include/MapPoint.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/ORBVocabulary.h" afterPath="$PROJECT_DIR$/include/ORBVocabulary.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/ORBextractor.h" afterPath="$PROJECT_DIR$/include/ORBextractor.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/ORBmatcher.h" afterPath="$PROJECT_DIR$/include/ORBmatcher.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Optimizer.h" afterPath="$PROJECT_DIR$/include/Optimizer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/PnPsolver.h" afterPath="$PROJECT_DIR$/include/PnPsolver.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Sim3Solver.h" afterPath="$PROJECT_DIR$/include/Sim3Solver.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/System.h" afterPath="$PROJECT_DIR$/include/System.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Tracking.h" afterPath="$PROJECT_DIR$/include/Tracking.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/Viewer.h" afterPath="$PROJECT_DIR$/include/Viewer.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Converter.cc" afterPath="$PROJECT_DIR$/src/Converter.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Frame.cc" afterPath="$PROJECT_DIR$/src/Frame.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FrameDrawer.cc" afterPath="$PROJECT_DIR$/src/FrameDrawer.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Initializer.cc" afterPath="$PROJECT_DIR$/src/Initializer.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KeyFrame.cc" afterPath="$PROJECT_DIR$/src/KeyFrame.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/KeyFrameDatabase.cc" afterPath="$PROJECT_DIR$/src/KeyFrameDatabase.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LocalMapping.cc" afterPath="$PROJECT_DIR$/src/LocalMapping.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoopClosing.cc" afterPath="$PROJECT_DIR$/src/LoopClosing.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Map.cc" afterPath="$PROJECT_DIR$/src/Map.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MapDrawer.cc" afterPath="$PROJECT_DIR$/src/MapDrawer.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MapPoint.cc" afterPath="$PROJECT_DIR$/src/MapPoint.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ORBextractor.cc" afterPath="$PROJECT_DIR$/src/ORBextractor.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ORBmatcher.cc" afterPath="$PROJECT_DIR$/src/ORBmatcher.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Optimizer.cc" afterPath="$PROJECT_DIR$/src/Optimizer.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PnPsolver.cc" afterPath="$PROJECT_DIR$/src/PnPsolver.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sim3Solver.cc" afterPath="$PROJECT_DIR$/src/Sim3Solver.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/System.cc" afterPath="$PROJECT_DIR$/src/System.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Tracking.cc" afterPath="$PROJECT_DIR$/src/Tracking.cc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Viewer.cc" afterPath="$PROJECT_DIR$/src/Viewer.cc" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,16 +65,55 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="stereo_kitti.cc" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
+      <file leaf-file-name="System.cc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/System.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="185" column="116" lean-forward="false" selection-start-line="185" selection-start-column="116" selection-end-line="185" selection-end-column="116" />
+            <state relative-caret-position="406">
+              <caret line="340" column="39" lean-forward="false" selection-start-line="340" selection-start-column="39" selection-end-line="340" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Monitor.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/Monitor.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Monitor.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Monitor.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="619">
+              <caret line="83" column="39" lean-forward="false" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
               <folding>
-                <element signature="e#829#847#0" expanded="true" />
-                <element signature="e#5378#5460#0" expanded="true" />
-                <element signature="e#5687#5769#0" expanded="true" />
-                <element signature="e#7056#8073#0" expanded="false" />
+                <element signature="e#39#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mat.hpp" pinned="false" current-in-tab="false">
+        <entry file="file:///opt/opencv2/include/opencv2/core/mat.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tracking.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/Tracking.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+              <folding>
+                <element signature="e#868#899#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,155 +122,49 @@
       <file leaf-file-name="utils.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/include/utils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
-              <folding>
-                <element signature="e#96#125#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocalMapping.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
+      <file leaf-file-name="Viewer.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/Viewer.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="760" column="0" lean-forward="false" selection-start-line="760" selection-start-column="2" selection-end-line="761" selection-end-column="85" />
-              <folding>
-                <element signature="e#828#853#0" expanded="true" />
-                <element signature="e#5971#15763#0" expanded="false" />
-                <element signature="e#19113#19635#0" expanded="false" />
-                <element signature="e#19641#19832#0" expanded="false" />
-                <element signature="e#19838#20099#0" expanded="false" />
-                <element signature="e#20105#20214#0" expanded="false" />
-                <element signature="e#20220#20339#0" expanded="false" />
-                <element signature="e#20345#20804#0" expanded="false" />
-                <element signature="e#20810#20935#0" expanded="false" />
-                <element signature="e#20941#21078#0" expanded="false" />
-                <element signature="e#21084#21284#0" expanded="false" />
-                <element signature="e#21290#21356#0" expanded="false" />
-                <element signature="e#21362#23943#0" expanded="false" />
-                <element signature="e#23949#24198#0" expanded="false" />
-                <element signature="e#24204#24558#0" expanded="false" />
-                <element signature="e#24564#24816#0" expanded="false" />
-                <element signature="e#24822#24945#0" expanded="false" />
-                <element signature="e#24951#25072#0" expanded="false" />
-                <element signature="e#25078#25262#0" expanded="false" />
-                <element signature="e#25387#27030#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoopClosing.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LoopClosing.cc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1924">
-              <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
-              <folding>
-                <element signature="e#828#852#0" expanded="true" />
-                <element signature="e#12834#19634#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoopClosing.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/LoopClosing.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2444">
-              <caret line="94" column="14" lean-forward="false" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
+            <state relative-caret-position="-650">
+              <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="System.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/System.cc">
+      <file leaf-file-name="PnPsolver.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/PnPsolver.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8112">
-              <caret line="312" column="0" lean-forward="false" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+            <state relative-caret-position="494">
+              <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tracking.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
+      <file leaf-file-name="Sim3Solver.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/Sim3Solver.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-209">
-              <caret line="337" column="45" lean-forward="false" selection-start-line="337" selection-start-column="45" selection-end-line="337" selection-end-column="45" />
-              <folding>
-                <element signature="e#829#850#0" expanded="true" />
-                <element signature="e#5527#5629#0" expanded="false" />
-                <element signature="e#5635#5712#0" expanded="false" />
-                <element signature="e#13861#14217#0" expanded="false" />
-                <element signature="e#14223#15609#0" expanded="false" />
-                <element signature="e#15615#17470#0" expanded="false" />
-                <element signature="e#17476#19718#0" expanded="false" />
-                <element signature="e#19724#21108#0" expanded="false" />
-                <element signature="e#21114#24204#0" expanded="false" />
-                <element signature="e#24210#26705#0" expanded="false" />
-                <element signature="e#26711#28373#0" expanded="false" />
-                <element signature="e#28379#28592#0" expanded="false" />
-                <element signature="e#28598#29554#0" expanded="false" />
-                <element signature="e#29561#33359#0" expanded="false" />
-                <element signature="e#33365#39012#0" expanded="false" />
-                <element signature="e#39018#40158#0" expanded="false" />
-                <element signature="e#40164#41219#0" expanded="false" />
-                <element signature="e#43949#46096#0" expanded="false" />
-                <element signature="e#46102#49491#0" expanded="false" />
-                <element signature="e#49498#51020#0" expanded="false" />
-                <element signature="e#51026#51366#0" expanded="false" />
-                <element signature="e#51372#57294#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tracking.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/Tracking.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3250">
-              <caret line="125" column="9" lean-forward="false" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+            <state relative-caret-position="572">
+              <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ORBmatcher.cc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ORBmatcher.cc">
+      <file leaf-file-name="System.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/System.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45812">
-              <caret line="1762" column="10" lean-forward="false" selection-start-line="1762" selection-start-column="10" selection-end-line="1762" selection-end-column="10" />
-              <folding>
-                <element signature="e#1382#4108#0" expanded="false" />
-                <element signature="e#4114#4270#0" expanded="false" />
-                <element signature="e#4277#5112#0" expanded="false" />
-                <element signature="e#5118#9363#0" expanded="false" />
-                <element signature="e#9369#13119#0" expanded="false" />
-                <element signature="e#13125#16827#0" expanded="false" />
-                <element signature="e#16833#21401#0" expanded="false" />
-                <element signature="e#21407#27062#0" expanded="false" />
-                <element signature="e#27068#31749#0" expanded="false" />
-                <element signature="e#31755#35786#0" expanded="false" />
-                <element signature="e#35792#42713#0" expanded="false" />
-                <element signature="e#42719#47944#0" expanded="false" />
-                <element signature="e#47950#53717#0" expanded="false" />
-                <element signature="e#53723#58438#0" expanded="false" />
-                <element signature="e#58444#59324#0" expanded="false" />
-                <element signature="e#59327#59921#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -205,6 +174,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Tracked temporal points</find>
+      <find>Unpr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -213,34 +183,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/include/System.h" />
-        <option value="$PROJECT_DIR$/include/Frame.h" />
-        <option value="$PROJECT_DIR$/Examples/Stereo/stereo_euroc.cc" />
-        <option value="$PROJECT_DIR$/include/Optimizer.h" />
-        <option value="$PROJECT_DIR$/include/MapPoint.h" />
-        <option value="$PROJECT_DIR$/src/KeyFrame.cc" />
-        <option value="$PROJECT_DIR$/src/MapPoint.cc" />
-        <option value="$PROJECT_DIR$/include/LocalMapping.h" />
-        <option value="$PROJECT_DIR$/Examples/Stereo/pku-04-05.yaml" />
-        <option value="$PROJECT_DIR$/include/Tracking.h" />
-        <option value="$PROJECT_DIR$/include/ORBmatcher.h" />
-        <option value="$PROJECT_DIR$/include/FrameDrawer.h" />
-        <option value="$PROJECT_DIR$/Examples/Stereo/pku-07.yaml" />
         <option value="$PROJECT_DIR$/Examples/Stereo/pku-06.yaml" />
-        <option value="$PROJECT_DIR$/src/Frame.cc" />
         <option value="$PROJECT_DIR$/Examples/Stereo/pku-08.yaml" />
-        <option value="$PROJECT_DIR$/src/LoopClosing.cc" />
-        <option value="$PROJECT_DIR$/src/Viewer.cc" />
-        <option value="$PROJECT_DIR$/src/FrameDrawer.cc" />
         <option value="$PROJECT_DIR$/include/GlobalValues.h" />
-        <option value="$PROJECT_DIR$/src/Optimizer.cc" />
-        <option value="$PROJECT_DIR$/src/System.cc" />
         <option value="$PROJECT_DIR$/include/utils.h" />
+        <option value="$PROJECT_DIR$/Thirdparty/g2o/g2o/core/optimizable_graph.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/ORBmatcher.cc" />
-        <option value="$PROJECT_DIR$/src/Tracking.cc" />
-        <option value="$PROJECT_DIR$/src/LocalMapping.cc" />
+        <option value="$PROJECT_DIR$/Examples/Stereo/EuRoC.yaml" />
+        <option value="$PROJECT_DIR$/Examples/Stereo/pku-04-05.yaml" />
+        <option value="$PROJECT_DIR$/Examples/Stereo/pku-desk-00-02.yaml" />
         <option value="$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc" />
+        <option value="$PROJECT_DIR$/src/Optimizer.cc" />
+        <option value="$PROJECT_DIR$/src/Converter.cc" />
+        <option value="$PROJECT_DIR$/src/Frame.cc" />
+        <option value="$PROJECT_DIR$/src/FrameDrawer.cc" />
+        <option value="$PROJECT_DIR$/src/Initializer.cc" />
+        <option value="$PROJECT_DIR$/src/KeyFrame.cc" />
+        <option value="$PROJECT_DIR$/src/KeyFrameDatabase.cc" />
+        <option value="$PROJECT_DIR$/src/LocalMapping.cc" />
+        <option value="$PROJECT_DIR$/src/LoopClosing.cc" />
+        <option value="$PROJECT_DIR$/src/Map.cc" />
+        <option value="$PROJECT_DIR$/src/MapDrawer.cc" />
+        <option value="$PROJECT_DIR$/src/MapPoint.cc" />
+        <option value="$PROJECT_DIR$/src/ORBextractor.cc" />
+        <option value="$PROJECT_DIR$/src/ORBmatcher.cc" />
+        <option value="$PROJECT_DIR$/src/PnPsolver.cc" />
+        <option value="$PROJECT_DIR$/src/Sim3Solver.cc" />
+        <option value="$PROJECT_DIR$/src/Tracking.cc" />
+        <option value="$PROJECT_DIR$/src/Viewer.cc" />
+        <option value="$PROJECT_DIR$/include/Converter.h" />
+        <option value="$PROJECT_DIR$/include/Frame.h" />
+        <option value="$PROJECT_DIR$/include/FrameDrawer.h" />
+        <option value="$PROJECT_DIR$/include/Initializer.h" />
+        <option value="$PROJECT_DIR$/include/KeyFrame.h" />
+        <option value="$PROJECT_DIR$/include/KeyFrameDatabase.h" />
+        <option value="$PROJECT_DIR$/include/LocalMapping.h" />
+        <option value="$PROJECT_DIR$/include/LoopClosing.h" />
+        <option value="$PROJECT_DIR$/include/Map.h" />
+        <option value="$PROJECT_DIR$/include/MapDrawer.h" />
+        <option value="$PROJECT_DIR$/include/MapPoint.h" />
+        <option value="$PROJECT_DIR$/include/Optimizer.h" />
+        <option value="$PROJECT_DIR$/include/ORBextractor.h" />
+        <option value="$PROJECT_DIR$/include/ORBmatcher.h" />
+        <option value="$PROJECT_DIR$/include/ORBVocabulary.h" />
+        <option value="$PROJECT_DIR$/include/PnPsolver.h" />
+        <option value="$PROJECT_DIR$/include/Sim3Solver.h" />
+        <option value="$PROJECT_DIR$/include/System.h" />
+        <option value="$PROJECT_DIR$/include/Tracking.h" />
+        <option value="$PROJECT_DIR$/include/Viewer.h" />
+        <option value="$PROJECT_DIR$/src/System.cc" />
+        <option value="$PROJECT_DIR$/src/Monitor.cpp" />
+        <option value="$PROJECT_DIR$/include/Monitor.h" />
       </list>
     </option>
   </component>
@@ -252,10 +245,10 @@
   </component>
   <component name="OCFindUsagesOptions" text="false" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-11" />
-    <option name="width" value="1857" />
-    <option name="height" value="1092" />
+    <option name="x" value="65" />
+    <option name="y" value="-6" />
+    <option name="width" value="1855" />
+    <option name="height" value="1086" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -311,6 +304,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="include" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stereo_SLAM" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stereo_SLAM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Examples" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -326,6 +333,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -558,27 +566,36 @@
       <workItem from="1492157066269" duration="53004000" />
       <workItem from="1492669572336" duration="6564000" />
       <workItem from="1492686166847" duration="22394000" />
-      <workItem from="1492920048738" duration="2079000" />
+      <workItem from="1492920048738" duration="19918000" />
+      <workItem from="1493773237893" duration="10309000" />
+      <workItem from="1493948553989" duration="24038000" />
+      <workItem from="1494550477752" duration="9644000" />
+      <workItem from="1495197886760" duration="599000" />
+      <workItem from="1495380474066" duration="2000" />
+      <workItem from="1495797769856" duration="623000" />
+      <workItem from="1495801562493" duration="4299000" />
+      <workItem from="1495873131025" duration="12058000" />
+      <workItem from="1497006091517" duration="4957000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185500000" />
+    <option name="totallyTimeSpent" value="269868000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="7" />
+    <frame x="65" y="-6" width="1855" height="1086" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11266846" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12345014" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4627492" sideWeight="0.8091644" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46185997" sideWeight="0.8091644" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17418678" sideWeight="0.19892183" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40608606" sideWeight="0.65013474" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22884013" sideWeight="0.65013474" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40713537" sideWeight="0.80107814" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21943574" sideWeight="0.80107814" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -619,374 +636,466 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="59" />
+      <option name="time" value="60" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt08-n-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/ORB/ORB-08.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt10-n-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt09-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/ORB/ORB-09.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt00-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt02-n-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt02-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt03-n-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/20170414-00.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/gt00-n-stereo.png" />
-    <entry file="file://$PROJECT_DIR$/include/Frame.h">
+    <entry file="file:///usr/local/include/opencv2/core.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
-          <folding />
+        <state relative-caret-position="260">
+          <caret line="52" column="35" lean-forward="true" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ORBextractor.cc">
+    <entry file="file://$PROJECT_DIR$/Thirdparty/g2o/g2o/core/optimizable_graph.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1637">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="10218">
+          <caret line="393" column="28" lean-forward="false" selection-start-line="393" selection-start-column="28" selection-end-line="393" selection-end-column="28" />
+          <folding>
+            <marker date="1494564095271" expanded="true" signature="1805:25570" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="2402:25542" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="2897:3494" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="3661:3706" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="3921:3982" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="4324:13158" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="4755:4829" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="6589:6784" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="7152:7333" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="8019:8227" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="8608:8803" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="9782:9842" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="13205:19146" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="18001:18165" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="18455:18725" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="23967:24016" ph="{...}" />
+            <marker date="1494564095271" expanded="true" signature="24051:24101" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/MapPoint.h">
+    <entry file="file://$PROJECT_DIR$/Examples/Stereo/EuRoC.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="119" column="35" lean-forward="false" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../Thirdparty/opencv-2.4.10/modules/core/src/matmul.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="710" column="0" lean-forward="false" selection-start-line="710" selection-start-column="0" selection-end-line="710" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MapPoint.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="204" column="19" lean-forward="false" selection-start-line="204" selection-start-column="19" selection-end-line="204" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/LocalMapping.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="78" column="9" lean-forward="false" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/x86_64-linux-gnu/c++/5/bits/gthr-default.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="747" column="0" lean-forward="false" selection-start-line="747" selection-start-column="0" selection-end-line="747" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Examples/Stereo/pku-04-05.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="42" column="25" lean-forward="false" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+        <state relative-caret-position="142">
+          <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/ORBmatcher.h">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="96" column="102" lean-forward="false" selection-start-line="96" selection-start-column="102" selection-end-line="96" selection-end-column="102" />
+        <state relative-caret-position="1664">
+          <caret line="64" column="13" lean-forward="false" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/line_match.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/traj-novo.png" />
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/stereo_match.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/circle_match.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/FrameDrawer.h">
+    <entry file="file://$PROJECT_DIR$/Examples/Stereo/pku-desk-00-02.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1742">
-          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        <state relative-caret-position="1430">
+          <caret line="55" column="25" lean-forward="false" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/pku-06.yaml">
+    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="58" column="18" lean-forward="false" selection-start-line="58" selection-start-column="18" selection-end-line="58" selection-end-column="18" />
+        <state relative-caret-position="468">
+          <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="e#829#847#0" expanded="false" />
+            <element signature="e#5601#5683#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Converter.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Frame.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17706">
-          <caret line="681" column="56" lean-forward="false" selection-start-line="681" selection-start-column="56" selection-end-line="681" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_euroc.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/pku-08.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/pku-07.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Viewer.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="159" column="30" lean-forward="false" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
-          <folding>
-            <element signature="e#828#847#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/include/opencv2/core/mat.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+        <state relative-caret-position="437">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FrameDrawer.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="125" column="7" lean-forward="false" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
+        <state relative-caret-position="501">
+          <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/GlobalValues.h">
+    <entry file="file://$PROJECT_DIR$/src/Initializer.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-217">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/20170421-04-no-ba.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/20170421-04-1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/20170421-04-no-selection.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/include/eigen3/Eigen/src/Core/util/Constants.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="161" column="36" lean-forward="false" selection-start-line="161" selection-start-column="36" selection-end-line="161" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Optimizer.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="548" column="30" lean-forward="false" selection-start-line="548" selection-start-column="30" selection-end-line="548" selection-end-column="30" />
+        <state relative-caret-position="572">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/KeyFrame.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="315" column="0" lean-forward="false" selection-start-line="315" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
+        <state relative-caret-position="572">
+          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/Optimizer.h">
+    <entry file="file://$PROJECT_DIR$/src/KeyFrameDatabase.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        <state relative-caret-position="390">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/LoopClosing.h">
+    <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2444">
-          <caret line="94" column="14" lean-forward="false" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
+        <state relative-caret-position="515">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LoopClosing.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1924">
-          <caret line="74" column="19" lean-forward="false" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="19" />
-          <folding>
-            <element signature="e#828#852#0" expanded="true" />
-            <element signature="e#12834#19634#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" column="22" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+        <state relative-caret-position="598">
+          <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/utils.h">
+    <entry file="file://$PROJECT_DIR$/src/Map.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="572">
+          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapDrawer.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MapPoint.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Optimizer.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="37" column="21" lean-forward="false" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
           <folding>
-            <element signature="e#96#125#0" expanded="true" />
+            <element signature="e#828#850#0" expanded="false" />
+            <element signature="e#1785#8353#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ORBextractor.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="68" column="21" lean-forward="false" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding>
+            <element signature="e#2556#2588#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ORBmatcher.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45812">
-          <caret line="1762" column="10" lean-forward="false" selection-start-line="1762" selection-start-column="10" selection-end-line="1762" selection-end-column="10" />
+        <state relative-caret-position="650">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
-            <element signature="e#1382#4108#0" expanded="false" />
-            <element signature="e#4114#4270#0" expanded="false" />
-            <element signature="e#4277#5112#0" expanded="false" />
-            <element signature="e#5118#9363#0" expanded="false" />
-            <element signature="e#9369#13119#0" expanded="false" />
-            <element signature="e#13125#16827#0" expanded="false" />
-            <element signature="e#16833#21401#0" expanded="false" />
-            <element signature="e#21407#27062#0" expanded="false" />
-            <element signature="e#27068#31749#0" expanded="false" />
-            <element signature="e#31755#35786#0" expanded="false" />
-            <element signature="e#35792#42713#0" expanded="false" />
-            <element signature="e#42719#47944#0" expanded="false" />
-            <element signature="e#47950#53717#0" expanded="false" />
-            <element signature="e#53723#58438#0" expanded="false" />
-            <element signature="e#58444#59324#0" expanded="false" />
-            <element signature="e#59327#59921#0" expanded="false" />
+            <element signature="e#4116#4272#0" expanded="false" />
+            <element signature="e#4279#5114#0" expanded="false" />
+            <element signature="e#5120#9365#0" expanded="false" />
+            <element signature="e#9371#13121#0" expanded="false" />
+            <element signature="e#13127#16829#0" expanded="false" />
+            <element signature="e#16835#21403#0" expanded="false" />
+            <element signature="e#21409#27064#0" expanded="false" />
+            <element signature="e#27070#31751#0" expanded="false" />
+            <element signature="e#31757#35788#0" expanded="false" />
+            <element signature="e#35794#42715#0" expanded="false" />
+            <element signature="e#42721#47946#0" expanded="false" />
+            <element signature="e#53725#58440#0" expanded="false" />
+            <element signature="e#59329#59923#0" expanded="false" />
+            <element signature="e#59929#61208#0" expanded="false" />
+            <element signature="e#61214#62621#0" expanded="false" />
+            <element signature="e#62627#63591#0" expanded="false" />
+            <element signature="e#63597#64544#0" expanded="false" />
+            <element signature="e#64550#66579#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/System.cc">
+    <entry file="file://$PROJECT_DIR$/src/PnPsolver.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8112">
-          <caret line="312" column="0" lean-forward="false" selection-start-line="312" selection-start-column="0" selection-end-line="312" selection-end-column="0" />
+        <state relative-caret-position="234">
+          <caret line="62" column="21" lean-forward="false" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/Tracking.h">
+    <entry file="file://$PROJECT_DIR$/src/Sim3Solver.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3250">
-          <caret line="125" column="9" lean-forward="false" selection-start-line="125" selection-start-column="9" selection-end-line="125" selection-end-column="9" />
+        <state relative-caret-position="364">
+          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Tracking.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-209">
-          <caret line="337" column="45" lean-forward="false" selection-start-line="337" selection-start-column="45" selection-end-line="337" selection-end-column="45" />
+        <state relative-caret-position="385">
+          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
           <folding>
-            <element signature="e#829#850#0" expanded="true" />
-            <element signature="e#5527#5629#0" expanded="false" />
-            <element signature="e#5635#5712#0" expanded="false" />
-            <element signature="e#13861#14217#0" expanded="false" />
-            <element signature="e#14223#15609#0" expanded="false" />
-            <element signature="e#15615#17470#0" expanded="false" />
-            <element signature="e#17476#19718#0" expanded="false" />
-            <element signature="e#19724#21108#0" expanded="false" />
-            <element signature="e#21114#24204#0" expanded="false" />
-            <element signature="e#24210#26705#0" expanded="false" />
-            <element signature="e#26711#28373#0" expanded="false" />
-            <element signature="e#28379#28592#0" expanded="false" />
-            <element signature="e#28598#29554#0" expanded="false" />
-            <element signature="e#29561#33359#0" expanded="false" />
-            <element signature="e#33365#39012#0" expanded="false" />
-            <element signature="e#39018#40158#0" expanded="false" />
-            <element signature="e#40164#41219#0" expanded="false" />
-            <element signature="e#43949#46096#0" expanded="false" />
-            <element signature="e#46102#49491#0" expanded="false" />
-            <element signature="e#49498#51020#0" expanded="false" />
-            <element signature="e#51026#51366#0" expanded="false" />
-            <element signature="e#51372#57294#0" expanded="false" />
+            <element signature="e#829#850#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LocalMapping.cc">
+    <entry file="file://$PROJECT_DIR$/src/Viewer.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="760" column="0" lean-forward="false" selection-start-line="760" selection-start-column="2" selection-end-line="761" selection-end-column="85" />
+        <state relative-caret-position="338">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Converter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Frame.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/FrameDrawer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/GlobalValues.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Initializer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/KeyFrame.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/KeyFrameDatabase.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/LocalMapping.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="32" column="21" lean-forward="false" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/LoopClosing.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="35" column="21" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Map.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/MapDrawer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/MapPoint.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Optimizer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/ORBextractor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="28" column="21" lean-forward="false" selection-start-line="28" selection-start-column="21" selection-end-line="28" selection-end-column="21" />
           <folding>
-            <element signature="e#828#853#0" expanded="true" />
-            <element signature="e#5971#15763#0" expanded="false" />
-            <element signature="e#19113#19635#0" expanded="false" />
-            <element signature="e#19641#19832#0" expanded="false" />
-            <element signature="e#19838#20099#0" expanded="false" />
-            <element signature="e#20105#20214#0" expanded="false" />
-            <element signature="e#20220#20339#0" expanded="false" />
-            <element signature="e#20345#20804#0" expanded="false" />
-            <element signature="e#20810#20935#0" expanded="false" />
-            <element signature="e#20941#21078#0" expanded="false" />
-            <element signature="e#21084#21284#0" expanded="false" />
-            <element signature="e#21290#21356#0" expanded="false" />
-            <element signature="e#21362#23943#0" expanded="false" />
-            <element signature="e#23949#24198#0" expanded="false" />
-            <element signature="e#24204#24558#0" expanded="false" />
-            <element signature="e#24564#24816#0" expanded="false" />
-            <element signature="e#24822#24945#0" expanded="false" />
-            <element signature="e#24951#25072#0" expanded="false" />
-            <element signature="e#25078#25262#0" expanded="false" />
-            <element signature="e#25387#27030#0" expanded="false" />
+            <marker date="1497013169050" expanded="true" signature="956:3179" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/Stereo/stereo_kitti.cc">
+    <entry file="file://$PROJECT_DIR$/include/ORBmatcher.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="185" column="116" lean-forward="false" selection-start-line="185" selection-start-column="116" selection-end-line="185" selection-end-column="116" />
+        <state relative-caret-position="333">
+          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/ORBVocabulary.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/PnPsolver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Sim3Solver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/System.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Tracking.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="42" column="21" lean-forward="false" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
           <folding>
-            <element signature="e#829#847#0" expanded="true" />
-            <element signature="e#5378#5460#0" expanded="true" />
-            <element signature="e#5687#5769#0" expanded="true" />
-            <element signature="e#7056#8073#0" expanded="false" />
+            <element signature="e#868#899#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="37" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Viewer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-650">
+          <caret line="31" column="10" lean-forward="false" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/System.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="340" column="39" lean-forward="false" selection-start-line="340" selection-start-column="39" selection-end-line="340" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///opt/opencv2/include/opencv2/core/mat.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Monitor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="83" column="39" lean-forward="false" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
+          <folding>
+            <element signature="e#39#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Monitor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

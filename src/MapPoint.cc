@@ -24,7 +24,7 @@
 #include<mutex>
 #include <glog/logging.h>
 
-namespace ORB_SLAM2 {
+namespace Stereo_SLAM {
 
     long unsigned int MapPoint::nNextId = 0;
     mutex MapPoint::mGlobalMutex;

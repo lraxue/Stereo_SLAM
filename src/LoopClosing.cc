@@ -33,7 +33,7 @@
 #include <zconf.h>
 
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 LoopClosing::LoopClosing(Map *pMap, KeyFrameDatabase *pDB, ORBVocabulary *pVoc, const bool bFixScale):

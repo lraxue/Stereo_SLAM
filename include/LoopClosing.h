@@ -33,7 +33,7 @@
 #include <mutex>
 #include "Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h"
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 class Tracking;

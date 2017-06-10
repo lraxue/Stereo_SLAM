@@ -55,7 +55,7 @@
 #include "MapPoint.h"
 #include "Frame.h"
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 class PnPsolver {

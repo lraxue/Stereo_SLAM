@@ -26,7 +26,7 @@
 
 #include<mutex>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 FrameDrawer::FrameDrawer(Map* pMap):mpMap(pMap)

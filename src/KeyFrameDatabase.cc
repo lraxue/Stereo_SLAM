@@ -27,7 +27,7 @@
 
 using namespace std;
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 KeyFrameDatabase::KeyFrameDatabase (const ORBVocabulary &voc):

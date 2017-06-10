@@ -24,7 +24,7 @@
 #include <mutex>
 #include <zconf.h>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 Viewer::Viewer(System* pSystem, FrameDrawer *pFrameDrawer, MapDrawer *pMapDrawer, Tracking *pTracking, const string &strSettingPath):
@@ -130,14 +130,16 @@ void Viewer::Run()
         glClearColor(1.0f,1.0f,1.0f,1.0f);
         mpMapDrawer->DrawCurrentCamera(Twc);
         // if(menuShowKeyFrames || menuShowGraph)
-            mpMapDrawer->DrawKeyFrames(true, true); //(menuShowKeyFrames,menuShowGraph);
+            mpMapDrawer->DrawKeyFrames(true, false); //(menuShowKeyFrames,menuShowGraph);
         // if(menuShowPoints)
             mpMapDrawer->DrawMapPoints();
 
         pangolin::FinishFrame();
 
         cv::Mat im = mpFrameDrawer->DrawFrame();
-        cv::imshow("Stereo_SLAM: Current Frame",im);
+        cv::Mat resizeIm;
+        cv::resize(im, resizeIm, cv::Size(640, 360));
+        cv::imshow("Stereo_SLAM: Current Frame",resizeIm);
         cv::waitKey(mT);
 
 //        if(menuReset)

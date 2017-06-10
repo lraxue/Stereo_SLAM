@@ -27,7 +27,7 @@
 #include <zconf.h>
 #include <glog/logging.h>
 
-namespace ORB_SLAM2 {
+namespace Stereo_SLAM {
 
     LocalMapping::LocalMapping(Map *pMap, const float bMonocular) :
             mbMonocular(bMonocular), mbResetRequested(false), mbFinishRequested(false), mbFinished(true), mpMap(pMap),

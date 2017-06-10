@@ -27,24 +27,28 @@ else ()
 endif ()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+set(OpenCV_DIR "/opt/opencv2/share/OpenCV")
 
-find_package(OpenCV 3.0 QUIET)
-if (NOT OpenCV_FOUND)
-    find_package(OpenCV 2.4.3 QUIET)
-    if (NOT OpenCV_FOUND)
-        message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
-    endif ()
-endif ()
+find_package(OpenCV 2.4.10 REQUIRED)
+set(OpenCV_INCLUDE_DIRS "/opt/opencv2/include/opencv" "/opt/opencv2/include")
+message(STATUS "${OpenCV_INCLUDE_DIRS}")
+#find_package(OpenCV 3.0 QUIET)
+#if (NOT OpenCV_FOUND)
+#    find_package(OpenCV 2.4.3 QUIET)
+#    if (NOT OpenCV_FOUND)
+#        message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
+#    endif ()
+#endif ()
 
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(Glog)
-
 include_directories(
         ${PROJECT_SOURCE_DIR}
         ${PROJECT_SOURCE_DIR}/include
         ${EIGEN3_INCLUDE_DIR}
         ${Pangolin_INCLUDE_DIRS}
+        ${OpenCV_INCLUDE_DIRS}
 )
 
 #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
@@ -71,7 +75,7 @@ add_executable(${PROJECT_NAME}
         src/Viewer.cc
         Examples/Stereo/stereo_kitti.cc
 #        Examples/Stereo/stereo_euroc.cc
-        )
+        src/Monitor.cpp)
 
 target_link_libraries(${PROJECT_NAME}
         ${OpenCV_LIBS}

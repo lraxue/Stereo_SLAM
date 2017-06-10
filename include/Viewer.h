@@ -29,7 +29,7 @@
 
 #include <mutex>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 class Tracking;

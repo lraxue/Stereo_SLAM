@@ -24,7 +24,7 @@
 #include <pangolin/pangolin.h>
 #include <mutex>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 

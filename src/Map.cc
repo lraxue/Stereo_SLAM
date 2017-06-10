@@ -22,7 +22,7 @@
 
 #include<mutex>
 
-namespace ORB_SLAM2
+namespace Stereo_SLAM
 {
 
 Map::Map():mnMaxKFid(0),mnBigChangeIdx(0)
